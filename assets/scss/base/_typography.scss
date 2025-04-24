@@ -1,11 +1,13 @@
+@use "../abstracts/variables" as vars;
+
 body {
-  font-family: $font-family-base;
-  line-height: $line-height-base;
-  color: $primary-color;
+  font-family: vars.$font-family-base;
+  line-height: vars.$line-height-base;
+  color: vars.$primary-color;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  margin-bottom: $spacing-unit;
+  margin-bottom: vars.$spacing-unit;
   font-weight: 700;
 }
 
@@ -22,5 +24,5 @@ h3 {
 }
 
 p {
-  margin-bottom: $spacing-unit;
+  margin-bottom: vars.$spacing-unit;
 }
