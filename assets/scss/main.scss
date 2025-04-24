@@ -1,5 +1,5 @@
-@use "gerillass/scss/gerillass" as gerillass;
-@use "utopia-core-scss/src/utopia" as utopia;
+/*@use "gerillass/scss/gerillass" as gerillass;
+@use "utopia-core-scss/src/utopia" as utopia;*/
 
 // Abstracts
 @use "abstracts/variables" as vars;
@@ -7,22 +7,15 @@
 
 // Base
 @use "base/reset";
+@use "base/_base";
 @use "base/typography";
 
 // Components
 @use "components/buttons";
 
 // Layout
+@use "layout/container";
 @use "layout/header";
+@use "layout/grid";
 @use "layout/footer";
-
-// Main styles
-body {
-  background-color: vars.$secondary-color;
-}
-
-main {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: vars.$spacing-unit;
-}
+@use "layout/sections";
