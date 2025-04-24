@@ -1,9 +1,5 @@
 # DEMODay MirandaMedia
 
-Vítám Tě u zkušebního zadání pro přijímací pohovor k nám do Mirandy!
-
-Níže nalezneš veškeré potřebné informace. Neváhej, pokud nebudeš vědět kudy kam, použít rady a nápady strýčka Googla, ale klidně i některého ze zkušenějších potenciálních kolegů. Určitě Ti rádi ukážou tu správnou cestu, nejsme přeci ve škole. Důležité je problém aktivně vyřešit, nikoliv zatajit nebo obejít. Nikdo z nás nikdy nebude umět všechno a i seniorní vývojáři řešení hledají.
-
 ## Grafický návrh
 
 Grafický návrh je část staršího projektu, konkrétně pouze Homepage jednoduchého e-shopu, zabývajícího se prodejem investičních kovů.
@@ -39,12 +35,6 @@ Naklonuj si tento repozitář k sobě do PC. V repozitáři máš připravené u
 
 ## Zpracování
 
-Na zpracování zadání máš primárně jeden den, který budeš trávit osobně u nás v Mirandě. Pokud vše stihneš, opět ti to přinese spoustu plusových bodů do hodnocení. Pokud to nestihneš, ale i přesto budeš mít chuť celé zadání dokončit, určitě se nějak domluvíme a můžeš zadání dokončit doma a poté zaslat, nikdo ti hlavu neutrhne.
-
 Buď důsledný. Prioritní je vzhledová stránka. Nedovol, aby se ti při jakémkoliv rozlišení překrývaly elementy nebo třeba "utíkaly" ze stránky. Preciznost a pixel perfect design je pro nás alfa-omega.
 
 Snaž se psát čitý, přehledný a vizuálně hezký kód, využívej DRY princip. Nebudeš jediný, kdo ho bude číst.
-
-## Závěr
-
-Závěrem Ti pouze popřeji hodně štěstí, a těším se na další spolupráci!

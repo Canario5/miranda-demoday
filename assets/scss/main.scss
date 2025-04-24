@@ -1,0 +1,28 @@
+@use "node_modules/gerillass/scss/gerillass" as gerillass;
+@use 'node_modules/utopia-core-scss/src/utopia' as utopia;
+
+// Abstracts
+@import "abstracts/variables";
+@import "abstracts/mixins";
+
+// Base
+@import "base/reset";
+@import "base/typography";
+
+// Components
+@import "components/buttons";
+
+// Layout
+@import "layout/header";
+@import "layout/footer";
+
+// Main styles
+body {
+  background-color: $secondary-color;
+}
+
+main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: $spacing-unit;
+}
