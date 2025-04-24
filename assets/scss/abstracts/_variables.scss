@@ -37,14 +37,21 @@
 $site-max-width: 1440px;
 
 // Colors
-$primary-color: #333;
-$secondary-color: #f8f8f8;
-$accent-color: #e74c3c;
+$primary-color: #333; //
+$secondary-color: #f8f8f8; //
+$accent-color: #e74c3c; //
+$tertiary-color: #E9E9E9;
 $background-color: #fff;
 
 // Typography
-$font-family-base: 'Arial', sans-serif;
+$font-family-base: 'Montserrat', 'Arial', sans-serif;
 $line-height-base: 1.6;
 
 // Spacing
 $spacing-unit: 1rem;
+
+// Breakpoints
+$breakpoint-md: 768px;
+// Add more breakpoints here later, e.g.:
+// $breakpoint-large: 1024px;
+// $breakpoint-xlarge: 1440px;

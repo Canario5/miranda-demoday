@@ -1,0 +1,275 @@
+@use '../abstracts/variables' as vars;
+@use '../abstracts/mixins' as mx;
+
+.site-header {
+  background-color: vars.$background-color; // Or your header specific color
+  position: relative;
+}
+
+.header__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-m); // Gap between logo, nav, actions
+}
+
+.logo {
+  display: flex;
+  max-width: 104px;
+  max-height: 40px;
+  width: 100%;
+  height: 100%;
+  margin-top: var(--space-m-l);
+  margin-bottom: var(--space-m-l);
+  background-color: vars.$tertiary-color;
+  text-decoration: none;
+  color: black;
+  align-items: center;
+  justify-content: center;
+
+  @media (min-width: 1024px) {
+    max-width: 233px;
+    max-height: 66px;
+  }
+}
+
+// Desktop Navigation
+.desktop-nav {
+  display: none;
+
+  ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    font-size: 14px;
+    font-weight: 500;
+  }
+
+  a {
+    text-decoration: none;
+    color: vars.$primary-color;
+    font-size: var(--step-0);
+
+    &:hover,
+    &:focus {
+      color: vars.$accent-color;
+      text-decoration: underline;
+    }
+  }
+}
+
+// --- Header Actions (Icon Group) ---
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-s);
+
+  &__button {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    color: vars.$primary-color;
+
+    &:hover,
+    &:focus {
+      color: vars.$accent-color;
+    }
+  }
+
+  &__cart-link {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3xs);
+    text-decoration: none;
+    color: inherit;
+  }
+
+  // Style for the cart item count bubble
+  .cart-count {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 20px;
+    height: 20px;
+    padding: var(--space-4xs);
+    border: 1px solid vars.$tertiary-color;
+    border-radius: 50%;
+    font-size: var(--step--2);
+    background-color: vars.$background-color;
+    color: vars.$primary-color;
+    box-sizing: border-box;
+
+    @media (min-width: vars.$breakpoint-md){
+      line-height: 1;
+    }
+  }
+
+  // Elements specifically for desktop/mobile
+  .desktop-only { display: none; }
+  .mobile-only { display: inline-flex; } // Or block, flex etc. as needed
+}
+
+.search-drawer {
+
+  max-height: 300px;
+
+  @media (max-width: vars.$breakpoint-md){
+    width: 100%;
+  }
+}
+
+.search-form {
+  display: flex;
+  gap: var(--space-s);
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.search-input {
+  position: relative; // Needed for ::after positioning
+  padding: var(--space-3xs);
+  border: none; // Reset all borders
+  border-bottom: 2px solid #C9C9C9; // Add default bottom border
+  transition: border-bottom-color 0.3s ease; // Add transition for hover effect
+
+  @media (max-width: vars.$breakpoint-md){
+    display: none;
+  }
+
+  &:focus {
+    outline: none; // Remove default focus outline
+  }
+
+  &::placeholder {
+    color: #8E8E8E; // Set placeholder text color
+    transition: color 0.3s ease; // Add transition for hover effect
+  }
+}
+
+.search-submit {
+  all: unset;
+  display: grid;
+  cursor: pointer;
+  padding: var(--space-3xs) var(--space-2xs);
+  &:hover {
+    color: vars.$accent-color;
+  }
+}
+
+// --- Mobile Navigation Panel ---
+.mobile-nav-panel {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: min(80vw, 300px); // Responsive width, max 300px
+  height: 100vh;
+  background-color: vars.$background-color;
+  z-index: 1000;
+  transform: translateX(100%);
+  transition: transform 0.3s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-l);
+
+  &__header {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: var(--space-xl);
+  }
+
+  .mobile-menu-close {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    svg { width: 24px; height: 24px; }
+  }
+
+  &__nav {
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    li {
+      margin-bottom: var(--space-m);
+    }
+    a {
+      text-decoration: none;
+      color: vars.$primary-color;
+      font-size: var(--step-1); // Larger font for mobile menu
+      display: block; // Make link take full width
+      &:hover,
+      &:focus {
+        color: vars.$accent-color;
+      }
+    }
+  }
+
+  &__extras {
+    margin-top: auto; // Push extras to the bottom
+    padding-top: var(--space-l);
+    border-top: 1px solid vars.$secondary-color;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-m);
+
+    .header-actions__currency,
+    .header-actions__profile-link {
+      //display: flex;
+      align-items: center;
+      gap: var(--space-xs);
+      text-decoration: none;
+      color: vars.$primary-color;
+      font-size: var(--step-0);
+    }
+  }
+}
+
+.currency-toggle {
+  background: none;
+  border: none;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+  padding-left: var(--space-3xs);
+
+  &__icon {
+    width: 12px;
+    height: auto;
+    margin-right: var(--space-3xs);
+    display: inline-block;
+    vertical-align: middle;
+  }
+}
+
+// --- Desktop Breakpoint ---
+@media (min-width: vars.$breakpoint-md) {
+  .desktop-nav {
+    display: flex;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .desktop-nav ul {
+    gap: clamp(10px, 5vw, 50px);
+    width: 100%;
+    justify-content: center;
+    text-wrap: nowrap;
+  }
+
+  .header-actions {
+    .desktop-only { display: inline-flex; } // Show desktop-only icons/elements
+    .mobile-only { display: none; } // Hide mobile-only icons (hamburger)
+  }
+
+  .mobile-nav-panel {
+    display: none;
+  }
+}
+
+// --- Optional: Larger Desktop Breakpoint Adjustments ---
+// @media (min-width: 1024px) { ... }

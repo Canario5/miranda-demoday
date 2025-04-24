@@ -1,13 +1,23 @@
+@use "../abstracts/variables" as vars; // Good practice to include dependencies
+
 @mixin flex-center {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-@mixin responsive($breakpoint) {
-  @if $breakpoint == tablet {
-    @media (min-width: 768px) { @content; }
-  } @else if $breakpoint == desktop {
-    @media (min-width: 1024px) { @content; }
+// Mixin for min-width media queries (mobile-first approach)
+// Usage: @include mx.mq(vars.$breakpoint-medium) { ...styles... }
+@mixin mq($breakpoint-value) {
+  @media (min-width: $breakpoint-value) {
+    @content; // Pass the styles inside the mixin call here
   }
 }
+
+// Optional: Mixin for max-width media queries (if needed)
+// Usage: @include mx.mq-down(vars.$breakpoint-medium) { ...styles for screens smaller than medium... }
+// @mixin mq-down($breakpoint-value) {
+//   @media (max-width: ($breakpoint-value - 1px)) { // Subtract 1px to avoid overlap with min-width
+//     @content;
+//   }
+// }
