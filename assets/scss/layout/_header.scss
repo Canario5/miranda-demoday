@@ -79,7 +79,7 @@
       padding-right: vars.$spacing-unit;
       transform: translateY(500px);
 
-      // to be more specific than selector bellow
+      //! to be more specific than same selector bellow
       input.search-input {
         max-width: 500px;
       }
@@ -124,6 +124,12 @@
     @media (min-width: 768px) {
       display: none;
     }
+  }
+
+  //! Achtung: styles two elements (toggle, submit) in search!
+  .search-icon {
+    width: 24px;
+    height: 24px;
   }
 }
 
@@ -172,7 +178,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      width: 21px; // Set your desired circle diameter
+      width: 21px;
       height: 21px;
       border: 1px solid black;
       border-radius: 50%;
@@ -182,5 +188,16 @@
         border-color: #8e8e8e;
       }
     }
+  }
+}
+
+// Header Profile
+.header-profile {
+  &__link {
+    background-color: red;
+  }
+
+  &__icon {
+    background-color: aqua;
   }
 }
