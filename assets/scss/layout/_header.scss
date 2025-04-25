@@ -195,9 +195,10 @@
 .header-profile {
   &__link {
     background-color: red;
-  }
 
-  &__icon {
-    background-color: aqua;
+    &__icon {
+      width: 24px;
+      height: 24px;
+    }
   }
 }
