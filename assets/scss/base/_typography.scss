@@ -7,9 +7,24 @@ body {
   font-family: vars.$font-family-base;
   line-height: vars.$line-height-base;
   color: vars.$text-color-primary;
+  font-weight: vars.$font-weight-regular;
+}
+
+/* Text Elements */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+  text-wrap: balance;
 }
 
 p {
+  overflow-wrap: break-word;
+  hyphens: auto;
+  text-wrap: pretty;
   margin-bottom: 1em;
   max-width: 65ch;
 }

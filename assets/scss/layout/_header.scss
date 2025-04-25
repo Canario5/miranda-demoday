@@ -2,8 +2,7 @@
 @use "../abstracts/mixins" as mixins;
 
 .header {
-  /*background-color: vars.$background-color;*/
-  /*position: relative;*/
+  //
 }
 
 .header__container {
@@ -20,29 +19,25 @@
   height: auto;
 
   background-color: vars.$logo-color;
-  text-decoration: none;
   align-items: center;
   justify-content: center;
 }
 
 // --- Main Navigation  ---
 .main-navigation {
-  position: fixed;
-  top: 0;
-  right: 0;
-  min-width: 100vw;
-  min-height: 100vh;
-  background-color: deeppink;
-  z-index: 1000;
-  transform: translateY(50px);
-  transition: transform 0.3s ease-in-out;
-
-  @media (min-width: 768px) {
-    all: unset;
+  @media (max-width: 767px) {
+    position: fixed;
+    top: 0;
+    right: 0;
+    min-width: 100vw;
+    min-height: 100vh;
+    background-color: deeppink;
+    z-index: 1000;
+    transform: translateY(50px);
+    transition: transform 0.3s ease-in-out;
   }
 
   &__list {
-    list-style: none;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -62,7 +57,6 @@
 .header-actions {
   display: flex;
   align-items: center;
-  gap: var(--space-s);
 }
 
 .search {
@@ -89,15 +83,14 @@
       justify-content: center;
 
       .search-input {
-        border: none;
         border-bottom: 2px solid #c9c9c9;
-        padding-bottom: 3px;
+        padding-bottom: 1px;
         min-width: 135px;
         max-width: 298px;
         width: 100%;
 
         &:focus {
-          outline: none;
+          outline: none; //note: add custom?
         }
 
         &::placeholder {
@@ -106,19 +99,15 @@
       }
 
       &__submit {
-        all: unset;
         width: 24px;
         height: 24px;
-        cursor: pointer;
       }
     }
   }
 
   &__toggle {
-    all: unset;
     width: 24px;
     height: 24px;
-    cursor: pointer;
 
     @media (min-width: 768px) {
       display: none;
@@ -139,10 +128,6 @@
   position: relative;
 
   &__list {
-    background: inherit;
-    border: none;
-    color: inherit;
-    font: inherit;
     padding-right: calc(1em + 8px);
     cursor: pointer;
 
@@ -162,8 +147,6 @@
 
 .header-cart {
   &__link {
-    text-decoration: none;
-    color: inherit;
     display: flex;
     align-items: center;
     gap: clamp(6px, 0.75vw, 10px);
@@ -191,10 +174,13 @@
 
 // Header Profile
 .header-profile {
+  width: max-content;
+
   &__link {
     background-color: red;
 
     &__icon {
+      max-width: unset;
       width: 24px;
       height: 24px;
     }
@@ -203,13 +189,11 @@
 
 // Mobile Menu Toggle
 .mobile-menu-toggle {
-  all: unset;
   display: flex;
   flex-direction: column;
   justify-content: center;
   gap: 12px;
   background: transparent;
-  cursor: pointer;
   aspect-ratio: 1 / 1;
 
   @media (max-width: 767px) {
