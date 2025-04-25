@@ -1,5 +1,4 @@
-/*@use "gerillass/scss/gerillass" as gerillass;
-@use "utopia-core-scss/src/utopia" as utopia;*/
+// @use "gerillass/scss/gerillass" as gerillass;
 
 // Abstracts
 @use "abstracts/variables" as vars;
@@ -7,15 +6,15 @@
 
 // Base
 @use "base/reset";
-@use "base/_base";
+@use "base/base";
 @use "base/typography";
 
-// Components
+// Componenty
 @use "components/buttons";
 
 // Layout
-@use "layout/container";
+@use "layout/layout";
 @use "layout/header";
 @use "layout/grid";
-@use "layout/footer";
 @use "layout/sections";
+@use "layout/footer";

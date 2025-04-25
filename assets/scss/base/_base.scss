@@ -3,11 +3,24 @@
 @use "../abstracts/mixins" as mixins;
 
 body {
-  background-color: vars.$background-color;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #e74c3c;
 }
 
 main {
-  max-width: vars.$site-max-width;
-  margin: 0 auto;
-  padding: vars.$spacing-unit;
+  flex: 1;
+  background-color: lightgoldenrodyellow;
+}
+
+img,
+picture,
+svg,
+video,
+canvas {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  vertical-align: middle;
 }

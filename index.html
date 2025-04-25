@@ -1,204 +1,212 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="cs">
-<head>
-    <meta charset="UTF-8"/>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>DEMODay MirandaMedia</title>
 
     <!-- Google Fonts - Montserrat -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <!--<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">-->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
     <!-- End Google Fonts -->
 
-    <link rel="stylesheet" href="/assets/scss/main.scss">
-</head>
-<body>
+    <link rel="stylesheet" href="/assets/scss/main.scss" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="header__container">
+        <a href="#" class="logo" aria-label="Go to homepage">LOGO</a>
 
-<header class="site-header">
-    <div class="container header__container">
-
-        <a href="/" class="logo" aria-label="Go to homepage">
-            LOGO
-        </a>
-
-        <!-- Desktop Navigation (Hidden on Mobile) -->
-        <nav class="desktop-nav" aria-label="Main navigation">
-            <ul>
-                <li><a href="/produkty">Produkty</a></li>
-                <li><a href="/akcni-nabidka">Akční nabídka</a></li>
-                <li><a href="/o-nas">O nás</a></li>
-                <li><a href="/kontakt">Kontakt</a></li>
-                <!-- Add other main menu items -->
-            </ul>
+        <nav
+          class="main-navigation"
+          aria-label="Main navigation"
+          aria-hidden="true"
+        >
+          <ul class="main-navigation__list">
+            <li class="main-navigation__list__item">
+              <a href="#">Produkty</a>
+            </li>
+            <li class="main-navigation__list__item">
+              <a href="#">Akční nabídka</a>
+            </li>
+            <li class="main-navigation__list__item">
+              <a href="#">O nás</a>
+            </li>
+            <li class="main-navigation__list__item">
+              <a href="#">Kontakt</a>
+            </li>
+          </ul>
         </nav>
 
-        <div class="search-drawer" id="search-drawer" aria-hidden="true">
-            <!-- Search form elements go here -->
-            <form class="search-form" action="/vyhledavani" method="get">
-                <input class="search-input" aria-label="Search" type="search" name="term" placeholder="Napište, co hledáte" required>
-                <button class="search-submit" type="submit">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <circle cx="11" cy="11"
-                                r="8"></circle>
-                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                    </svg>
-                </button>
-            </form>
-        </div>
-
-        <!-- Header Actions (Right Side) -->
+        <!-- Header Actions (Search, Currency, Cart, Profile) -->
         <div class="header-actions">
-            <!-- Currency Selector (Hidden on Mobile, Visible Desktop) -->
-            <div class="header-actions__currency desktop-only">
-                <!-- Placeholder - Shoptet might inject this differently -->
-                <span>CZK</span>
-                <!-- Or a button/link to change -->
-                <button class="currency-toggle" aria-label="Change currency">
-                    <img class="currency-toggle__icon" src="assets/img/icons/arrow_down.svg" alt="">
+          <div class="search">
+            <div class="search__drawer" aria-hidden="true">
+              <form
+                class="search__drawer__form"
+                action="/vyhledavani"
+                method="get"
+              >
+                <input
+                  class="search-input"
+                  aria-label="Search"
+                  type="search"
+                  name="term"
+                  placeholder="Napište, co hledáte"
+                  required
+                />
+                <button
+                  class="search__drawer__form__submit"
+                  aria-label="Search"
+                  type="submit"
+                >
+                  <img
+                    class="search-icon"
+                    src="assets/img/icons/search.svg"
+                    alt="Search"
+                  />
                 </button>
+              </form>
             </div>
 
-            <!-- Cart Link (Always Visible) -->
-            <a href="/kosik" class="header-actions__button header-actions__cart-link" aria-label="Shopping cart">
-                <div class="cart-text">Košík</div>
-                <div class="cart-count">0</div>
-            </a>
-
-            <!-- Profile Link (Hidden on Mobile, Visible Desktop) -->
-            <a href="/profil" class="header-actions__button header-actions__profile-link desktop-only"
-               aria-label="User profile">
-                <!-- Replace with your Profile Icon SVG -->
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                     stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M20 21v-2a4 4 0 0
-0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                    <circle cx="12" cy="7" r="4"></circle>
-                </svg>
-            </a>
-
-            <!-- Mobile Menu Toggle (Visible Mobile, Hidden Desktop) -->
-            <button class="header-actions__button mobile-menu-toggle mobile-only" aria-label="Open menu"
-                    aria-expanded="false" aria-controls="mobile-nav-panel">
-                <img class="cart__icon" src="assets/img/icons/menu_profile.svg" alt="">
+            <button
+              class="search__toggle"
+              aria-label="Toggle search"
+              type="button"
+            >
+              <img
+                class="search-icon"
+                src="assets/img/icons/search.svg"
+                alt="Search"
+              />
             </button>
-        </div>
+          </div>
 
-    </div>
+          <div class="currency-selector">
+            <select
+              class="currency-selector__list"
+              aria-label="Change currency"
+            >
+              <option value="CZK" selected>CZK</option>
+              <option value="EUR">EUR</option>
+              <option value="USD">USD</option>
+              <option value="GBP">GBP</option>
+            </select>
+            <span class="currency-selector__icon">
+              <svg viewBox="0 0 10 5" fill="none">
+                <path
+                  d="M1.5 0.75L5 4.25L8.5 0.75"
+                  stroke="black"
+                  stroke-width="1.2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </span>
+          </div>
 
-    <!-- Mobile Navigation Panel (Hidden by default) -->
-    <div class="mobile-nav-panel" id="mobile-nav-panel" aria-hidden="true">
-        <div class="mobile-nav-panel__header">
-            <button class="mobile-menu-close" aria-label="Close menu">
-                <!-- Replace with your Close Icon SVG -->
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                     stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <line x1="18" y1="6" x2="6"
-                          y2="18"></line>
-                    <line x1="6" y1="6" x2="18" y2="18"></line>
-                </svg>
-            </button>
-        </div>
-        <nav class="mobile-nav-panel__nav" aria-label="Mobile navigation">
-            <!-- Mobile navigation links will be populated here (potentially by JS or duplicated) -->
-            <ul>
-                <li><a href="/produkty">Produkty</a></li>
-                <li><a href="/akcni-nabidka">Akční nabídka</a></li>
-                <li><a href="/o-nas">O nás</a></li>
-                <li><a href="/kontakt">Kontakt</a></li>
-                <!-- Add other main menu items -->
-            </ul>
-        </nav>
-        <div class="mobile-nav-panel__extras">
-            <!-- Currency Selector for Mobile -->
-            <div class="header-actions__currency">
-                <span>CZK</span>
-                <button aria-label="Change currency" style="background:none; border:none; color:inherit;
-font:inherit; cursor:pointer; padding-left: 4px;">▼
-                </button>
-            </div>
-            <!-- Profile Link for Mobile -->
-            <a href="/profil" class="header-actions__button header-actions__profile-link" aria-label="User
-profile">
-                <!-- Replace with your Profile Icon SVG -->
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
-                     stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M20 21v-2a4 4 0 0
-0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                    <circle cx="12" cy="7" r="4"></circle>
-                </svg>
-                <span>Profil</span>
+          <!-- Cart Link (Always Visible) -->
+          <div class="cart">
+            <a
+              href="#"
+              class="header-actions__cart-link"
+              aria-label="Shopping cart"
+            >
+              <div class="cart-text">Košík</div>
+              <div class="cart-count">0</div>
             </a>
+          </div>
+
+          <!-- Profile Link (Hidden on Mobile, Visible Desktop) -->
+          <div class="profile">
+            <a href="/" class="profile__link" aria-label="User profile">
+              <img
+                class="profile__link__icon"
+                src="assets/img/icons/menu_profile.svg"
+                alt=""
+              />
+            </a>
+          </div>
+
+          <!-- Mobile Menu Toggle -->
+          <button
+            class="header-actions__button mobile-menu-toggle"
+            aria-label="Open mobile menu"
+            aria-expanded="false"
+            aria-controls="main-navigation"
+          >
+            ☰
+          </button>
         </div>
-    </div>
+      </div>
+    </header>
 
-</header>
+    <main>
+      <section class="hero">
+        <div class="section__container">
+          <!-- Hero content will go here -->
+          <p>Hero Section Placeholder</p>
+        </div>
+      </section>
 
-<main>
-    <section class="hero">
+      <section class="teasers">
+        <div class="section__container">
+          <!-- Teaser content will go here -->
+          <p>Teasers Section Placeholder</p>
+        </div>
+      </section>
+
+      <section class="offer-links">
+        <div class="section__container">
+          <!-- Offer links content will go here -->
+          <p>Offer Links Section Placeholder</p>
+        </div>
+      </section>
+
+      <section class="products">
+        <div class="section__container">
+          <!-- Products content will go here (initially static, later dynamic) -->
+          <p>Products Section Placeholder</p>
+        </div>
+      </section>
+
+      <section class="blog">
+        <div class="section__container">
+          <!-- Blog content will go here -->
+          <p>Blog Section Placeholder</p>
+        </div>
+      </section>
+
+      <section class="usp">
+        <div class="section__container">
+          <!-- USP content will go here -->
+          <p>USP Section Placeholder</p>
+        </div>
+      </section>
+
+      <section class="newsletter">
+        <div class="section__container">
+          <!-- Newsletter content will go here -->
+          <p>Newsletter Section Placeholder</p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="footer__container">
         <div class="container">
-            <!-- Hero content will go here -->
-            <p>Hero Section Placeholder</p>
+          <!-- Footer main content will go here -->
+          <p>Footer Placeholder</p>
         </div>
-    </section>
-
-    <section class="teasers">
-        <div class="container">
-            <!-- Teaser content will go here -->
-            <p>Teasers Section Placeholder</p>
+        <div class="container copyright-container">
+          <p>Copyright Placeholder</p>
         </div>
-    </section>
-
-    <section class="offer-links">
-        <div class="container">
-            <!-- Offer links content will go here -->
-            <p>Offer Links Section Placeholder</p>
-        </div>
-    </section>
-
-    <section class="products">
-        <div class="container">
-            <!-- Products content will go here (initially static, later dynamic) -->
-            <p>Products Section Placeholder</p>
-        </div>
-    </section>
-
-    <section class="blog">
-        <div class="container">
-            <!-- Blog content will go here -->
-            <p>Blog Section Placeholder</p>
-        </div>
-    </section>
-
-    <section class="usp">
-        <div class="container">
-            <!-- USP content will go here -->
-            <p>USP Section Placeholder</p>
-        </div>
-    </section>
-
-    <section class="newsletter">
-        <div class="container">
-            <!-- Newsletter content will go here -->
-            <p>Newsletter Section Placeholder</p>
-        </div>
-    </section>
-</main>
-
-<footer class="site-footer">
-    <div class="container">
-        <!-- Footer main content will go here -->
-        <p>Footer Placeholder</p>
-    </div>
-    <div class="container copyright-container">
-        <p>Copyright Placeholder</p>
-    </div>
-</footer>
-
-<!-- JavaScript link will go here later -->
-<!-- <script src="path/to/your/script.js"></script> -->
-
-</body>
+      </div>
+    </footer>
+  </body>
 </html>

@@ -1,83 +1,69 @@
-@use '../abstracts/variables' as vars;
-@use '../abstracts/mixins' as mx;
+@use "../abstracts/variables" as vars;
+@use "../abstracts/mixins" as mixins;
 
-.site-header {
-  background-color: vars.$background-color; // Or your header specific color
-  position: relative;
+.header {
+  /*background-color: vars.$background-color;*/
+  /*position: relative;*/
 }
 
 .header__container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: var(--space-m); // Gap between logo, nav, actions
 }
 
 .logo {
   display: flex;
-  max-width: 104px;
-  max-height: 40px;
+  max-width: 233px;
+  max-height: 66px;
   width: 100%;
   height: 100%;
-  margin-top: var(--space-m-l);
-  margin-bottom: var(--space-m-l);
+
   background-color: vars.$tertiary-color;
   text-decoration: none;
   color: black;
   align-items: center;
   justify-content: center;
-
-  @media (min-width: 1024px) {
-    max-width: 233px;
-    max-height: 66px;
-  }
 }
 
-// Desktop Navigation
-.desktop-nav {
-  display: none;
+// --- Main Navigation  ---
+.main-navigation {
+  position: fixed;
+  top: 0;
+  right: 0;
+  min-width: 100vw;
+  min-height: 100vh;
+  background-color: deeppink;
+  z-index: 1000;
+  transform: translateY(50px);
+  transition: transform 0.3s ease-in-out;
 
-  ul {
-    display: flex;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-
-    font-size: 14px;
-    font-weight: 500;
+  @media (min-width: 768px) {
+    all: unset;
   }
 
-  a {
-    text-decoration: none;
-    color: vars.$primary-color;
-    font-size: var(--step-0);
+  &__list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: clamp(1em, 4vw, 50px);
 
-    &:hover,
-    &:focus {
-      color: vars.$accent-color;
-      text-decoration: underline;
+    @media (min-width: 768px) {
+      flex-direction: row;
+    }
+
+    &__item {
+      text-wrap: nowrap;
     }
   }
 }
 
-// --- Header Actions (Icon Group) ---
+// --- Header Actions ---
 .header-actions {
   display: flex;
   align-items: center;
   gap: var(--space-s);
-
-  &__button {
-    background: none;
-    border: none;
-    padding: 0;
-    cursor: pointer;
-    color: vars.$primary-color;
-
-    &:hover,
-    &:focus {
-      color: vars.$accent-color;
-    }
-  }
 
   &__cart-link {
     display: flex;
@@ -102,174 +88,97 @@
     color: vars.$primary-color;
     box-sizing: border-box;
 
-    @media (min-width: vars.$breakpoint-md){
+    @media (min-width: 768px) {
       line-height: 1;
     }
   }
-
-  // Elements specifically for desktop/mobile
-  .desktop-only { display: none; }
-  .mobile-only { display: inline-flex; } // Or block, flex etc. as needed
 }
 
-.search-drawer {
-
-  max-height: 300px;
-
-  @media (max-width: vars.$breakpoint-md){
-    width: 100%;
-  }
-}
-
-.search-form {
+.search {
   display: flex;
-  gap: var(--space-s);
-  align-items: center;
-  justify-content: flex-end;
-}
 
-.search-input {
-  position: relative; // Needed for ::after positioning
-  padding: var(--space-3xs);
-  border: none; // Reset all borders
-  border-bottom: 2px solid #C9C9C9; // Add default bottom border
-  transition: border-bottom-color 0.3s ease; // Add transition for hover effect
+  &__drawer {
+    @media (max-width: 767px) {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100vw;
+      padding-left: vars.$spacing-unit;
+      padding-right: vars.$spacing-unit;
+      transform: translateY(500px);
 
-  @media (max-width: vars.$breakpoint-md){
-    display: none;
-  }
-
-  &:focus {
-    outline: none; // Remove default focus outline
-  }
-
-  &::placeholder {
-    color: #8E8E8E; // Set placeholder text color
-    transition: color 0.3s ease; // Add transition for hover effect
-  }
-}
-
-.search-submit {
-  all: unset;
-  display: grid;
-  cursor: pointer;
-  padding: var(--space-3xs) var(--space-2xs);
-  &:hover {
-    color: vars.$accent-color;
-  }
-}
-
-// --- Mobile Navigation Panel ---
-.mobile-nav-panel {
-  position: fixed;
-  top: 0;
-  right: 0;
-  width: min(80vw, 300px); // Responsive width, max 300px
-  height: 100vh;
-  background-color: vars.$background-color;
-  z-index: 1000;
-  transform: translateX(100%);
-  transition: transform 0.3s ease-in-out;
-  display: flex;
-  flex-direction: column;
-  padding: var(--space-l);
-
-  &__header {
-    display: flex;
-    justify-content: flex-end;
-    margin-bottom: var(--space-xl);
-  }
-
-  .mobile-menu-close {
-    background: none;
-    border: none;
-    padding: 0;
-    cursor: pointer;
-    svg { width: 24px; height: 24px; }
-  }
-
-  &__nav {
-    ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
+      // to be more specific than selector bellow
+      input.search-input {
+        max-width: 500px;
+      }
     }
-    li {
-      margin-bottom: var(--space-m);
-    }
-    a {
-      text-decoration: none;
-      color: vars.$primary-color;
-      font-size: var(--step-1); // Larger font for mobile menu
-      display: block; // Make link take full width
-      &:hover,
-      &:focus {
-        color: vars.$accent-color;
+
+    &__form {
+      display: flex;
+      justify-content: center;
+
+      .search-input {
+        border: none;
+        border-bottom: 2px solid #c9c9c9;
+        padding-bottom: 3px;
+        min-width: 135px;
+        max-width: 298px;
+        width: 100%;
+
+        &:focus {
+          outline: none;
+        }
+
+        &::placeholder {
+          color: #8e8e8e;
+        }
+      }
+
+      &__submit {
+        all: unset;
+        width: 24px;
+        height: 24px;
+        cursor: pointer;
       }
     }
   }
 
-  &__extras {
-    margin-top: auto; // Push extras to the bottom
-    padding-top: var(--space-l);
-    border-top: 1px solid vars.$secondary-color;
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-m);
+  &__toggle {
+    all: unset;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
 
-    .header-actions__currency,
-    .header-actions__profile-link {
-      //display: flex;
-      align-items: center;
-      gap: var(--space-xs);
-      text-decoration: none;
-      color: vars.$primary-color;
-      font-size: var(--step-0);
+    @media (min-width: 768px) {
+      display: none;
     }
   }
 }
 
-.currency-toggle {
-  background: none;
-  border: none;
-  color: inherit;
-  font: inherit;
-  cursor: pointer;
-  padding-left: var(--space-3xs);
+.currency-selector {
+  display: inline-flex;
+  justify-content: flex-end;
+  width: max-content;
+  position: relative;
 
+  &__list {
+    background: inherit;
+    border: none;
+    color: inherit;
+    font: inherit;
+    padding-right: calc(1em + 8px);
+    cursor: pointer;
+
+    &:focus {
+      outline: 1px solid vars.$accent-color;
+    }
+  }
   &__icon {
-    width: 12px;
-    height: auto;
-    margin-right: var(--space-3xs);
-    display: inline-block;
-    vertical-align: middle;
+    position: absolute;
+    width: 1em;
+    height: 1em;
+    display: inline-flex;
+    transform: translateX(-25%) translateY(25%);
+    pointer-events: none;
   }
 }
-
-// --- Desktop Breakpoint ---
-@media (min-width: vars.$breakpoint-md) {
-  .desktop-nav {
-    display: flex;
-    margin: 0 auto;
-    width: 100%;
-  }
-
-  .desktop-nav ul {
-    gap: clamp(10px, 5vw, 50px);
-    width: 100%;
-    justify-content: center;
-    text-wrap: nowrap;
-  }
-
-  .header-actions {
-    .desktop-only { display: inline-flex; } // Show desktop-only icons/elements
-    .mobile-only { display: none; } // Hide mobile-only icons (hamburger)
-  }
-
-  .mobile-nav-panel {
-    display: none;
-  }
-}
-
-// --- Optional: Larger Desktop Breakpoint Adjustments ---
-// @media (min-width: 1024px) { ... }

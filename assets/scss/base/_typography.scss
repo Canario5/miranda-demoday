@@ -1,29 +1,15 @@
 @use "../abstracts/variables" as vars;
 
-
 body {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   font-family: vars.$font-family-base;
   line-height: vars.$line-height-base;
-  color: vars.$primary-color;
-}
-
-h1, h2, h3, h4, h5, h6 {
-  margin-bottom: vars.$spacing-unit;
-  font-weight: 700;
-}
-
-h1 {
-  font-size: 2.5rem;
-}
-
-h2 {
-  font-size: 2rem;
-}
-
-h3 {
-  font-size: 1.75rem;
+  color: vars.$text-color;
 }
 
 p {
-  margin-bottom: vars.$spacing-unit;
+  margin-bottom: 1em;
+  max-width: 65ch;
 }
