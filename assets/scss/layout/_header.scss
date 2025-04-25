@@ -64,34 +64,6 @@
   display: flex;
   align-items: center;
   gap: var(--space-s);
-
-  &__cart-link {
-    display: flex;
-    align-items: center;
-    gap: var(--space-3xs);
-    text-decoration: none;
-    color: inherit;
-  }
-
-  // Style for the cart item count bubble
-  .cart-count {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    min-width: 20px;
-    height: 20px;
-    padding: var(--space-4xs);
-    border: 1px solid vars.$tertiary-color;
-    border-radius: 50%;
-    font-size: var(--step--2);
-    background-color: vars.$background-color;
-    color: vars.$primary-color;
-    box-sizing: border-box;
-
-    @media (min-width: 768px) {
-      line-height: 1;
-    }
-  }
 }
 
 .search {
@@ -180,5 +152,35 @@
     display: inline-flex;
     transform: translateX(-25%) translateY(25%);
     pointer-events: none;
+  }
+}
+
+.header-cart {
+  &__link {
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    align-items: center;
+    gap: clamp(6px, 0.75vw, 10px);
+
+    &:hover {
+      background: #f5f5f5;
+      outline: none;
+    }
+
+    &__count {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 21px; // Set your desired circle diameter
+      height: 21px;
+      border: 1px solid black;
+      border-radius: 50%;
+
+      @media (min-width: 768px) {
+        color: #8e8e8e;
+        border-color: #8e8e8e;
+      }
+    }
   }
 }
