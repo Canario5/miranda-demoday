@@ -1,8 +1,10 @@
 // Abstracts
 @use "../abstracts/variables" as vars;
 @use "../abstracts/mixins" as mixins;
+@use "../base/typography";
 
 body {
+  @extend %typography-base;
   display: flex;
   flex-direction: column;
   min-height: 100vh;

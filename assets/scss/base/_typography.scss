@@ -1,5 +1,6 @@
 @use "../abstracts/variables" as vars;
 
+/* Base Typography */
 body {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -27,4 +28,55 @@ p {
   text-wrap: pretty;
   margin-bottom: 1em;
   max-width: 65ch;
+}
+
+/* Typography extends */
+// BASE TEXT (14px / 500 / 17px)
+%typography-base {
+  font-family: vars.$font-family-base;
+  font-size: 14px;
+  font-weight: vars.$font-weight-regular;
+  // 17px / 14px ≈ 1.214
+  line-height: 1.215;
+  letter-spacing: vars.$letter-spacing-default;
+}
+
+// LARGE TEXT (18px / 500 / 22px)
+%typography-large {
+  font-family: vars.$font-family-base;
+  font-size: 18px;
+  font-weight: vars.$font-weight-regular;
+  // 22px / 18px ≈ 1.222
+  line-height: 1.225;
+  letter-spacing: vars.$letter-spacing-default;
+}
+
+// SMALL TEXT (12px / 500 / 15px)
+%typography-small {
+  font-family: vars.$font-family-base;
+  font-size: 12px;
+  font-weight: vars.$font-weight-regular;
+  // 15px / 12px = 1.25
+  line-height: 1.25;
+  letter-spacing: vars.$letter-spacing-default;
+}
+
+// HEADLINE MEDIUM (24px / 700 / 29px)
+%typography-heading-medium {
+  font-family: vars.$font-family-base;
+  font-size: 24px;
+  font-weight: vars.$font-weight-bold;
+  // 29px / 24px ≈ 1.208
+  line-height: 1.21;
+  letter-spacing: vars.$letter-spacing-default;
+}
+
+// HEADLINE BIG (36px / 700 / 44px)
+%typography-heading-large {
+  font-family: vars.$font-family-base;
+  font-size: 36px;
+  font-weight: vars.$font-weight-bold;
+  // 44px / 36px ≈ 1.222
+  line-height: 1.225;
+  letter-spacing: vars.$letter-spacing-default;
 }
