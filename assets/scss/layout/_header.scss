@@ -31,16 +31,18 @@
 
 // --- Main Navigation  ---
 .main-navigation {
+  //* Opened mobile menu
   @media (max-width: 767px) {
     position: fixed;
     top: 0;
     right: 0;
+    visibility: hidden;
     min-width: 100vw;
     min-height: 100vh;
-    background-color: deeppink;
-    z-index: 1000;
-    transform: translateY(50px);
-    transition: transform 0.3s ease-in-out;
+    background-color: deeppink; //!TODO: Change bg of mobile menu
+    padding-top: clamp(4.5rem, 3.3996rem + 4.6948vw, 7.625rem); //header heigth
+    transform: translateY(-110%);
+    z-index: 999;
   }
 
   &__list {
@@ -214,6 +216,7 @@
     background: transparent;
     aspect-ratio: 1 / 1;
     margin-left: 33px;
+    z-index: 9999;
 
     span {
       width: 49px;
