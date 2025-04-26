@@ -130,10 +130,17 @@
 }
 
 .currency-selector {
-  display: inline-flex;
-  justify-content: flex-end;
-  width: max-content;
   position: relative;
+
+  @media (max-width: 767px) {
+    position: fixed;
+    top: 16px;
+    left: calc(49px + 1em);
+    display: flex;
+    height: 49px;
+    font-size: 20px;
+    /*z-index: 1010;*/
+  }
 
   &__list {
     padding-right: calc(1em + 8px);
@@ -145,11 +152,13 @@
   }
   &__icon {
     position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 0.5em;
     width: 1em;
     height: 1em;
-    display: inline-flex;
-    transform: translateX(-25%) translateY(25%);
     pointer-events: none;
+    padding: 2.75px 2px;
   }
 }
 
