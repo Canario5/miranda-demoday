@@ -92,6 +92,7 @@
 
   &__drawer {
     @media (max-width: 767px) {
+    @media (max-width: 1023px) {
       position: absolute;
       left: 0;
       top: 0;
@@ -137,7 +138,7 @@
     width: 24px;
     height: 24px;
 
-    @media (min-width: 768px) {
+    @media (min-width: 1024px) {
       display: none;
     }
   }
