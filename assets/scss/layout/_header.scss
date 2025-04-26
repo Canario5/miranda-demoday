@@ -196,15 +196,16 @@
 
 // Header Profile
 .header-profile {
-  width: max-content;
+  @media (min-width: 768px) {
+    display: block;
+    width: max-content;
 
-  &__link {
-    background-color: red;
-
-    &__icon {
-      max-width: unset;
-      width: 24px;
-      height: 24px;
+    &__link {
+      &__icon {
+        max-width: unset; //! needed to disable shrinking
+        width: 24px;
+        height: 24px;
+      }
     }
   }
 }
