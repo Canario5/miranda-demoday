@@ -24,6 +24,15 @@
   background-color: vars.$logo-color;
   align-items: center;
   justify-content: center;
+
+  width: clamp(6.5rem, 3.8812rem + 11.1737vw, 13.9375rem); //104 = 223
+  height: clamp(2.4375rem, 1.8433rem + 2.5352vw, 4.125rem); //39 = 66
+  margin-right: 0.75em;
+  background-color: vars.$logo-color;
+
+  transition:
+    opacity 0.3s ease,
+    transform 0.5s ease-out;
 }
 
 // --- Main Navigation  ---
