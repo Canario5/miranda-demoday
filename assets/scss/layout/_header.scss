@@ -2,14 +2,9 @@
 @use "../abstracts/mixins" as mixins;
 
 .header {
-  height: clamp(72px, 59.6px + 3.31vw, 85px);
-  padding-top: clamp(16px, 12.2px + 1.02vw, 20px);
-  padding-bottom: clamp(17px, 13.2px + 1.02vw, 21px);
-  @media (min-width: 768px) {
-    height: clamp(85px, 42.8px + 5.5vw, 122px);
-    padding-top: clamp(20px, 8.5px + 1.49vw, 30px);
-    padding-bottom: clamp(21px, 15.3px + 0.74vw, 26px);
-  }
+  height: clamp(4.5rem, 3.3996rem + 4.6948vw, 7.625rem); //375:72 = 1440:122
+  padding-top: clamp(1rem, 0.6919rem + 1.3146vw, 1.875rem); //16 = 20
+  padding-bottom: clamp(1.0625rem, 0.8644rem + 0.8451vw, 1.625rem); //17 = 26
 }
 
 .header__container {
