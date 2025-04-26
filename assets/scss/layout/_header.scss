@@ -206,20 +206,19 @@
 
 // Mobile Menu Toggle
 .mobile-menu-toggle {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 12px;
-  background: transparent;
-  aspect-ratio: 1 / 1;
-
   @media (max-width: 767px) {
-    display: none;
-  }
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 12px;
+    background: transparent;
+    aspect-ratio: 1 / 1;
+    margin-left: 33px;
 
-  span {
-    width: 49px;
-    height: 2px;
-    background-color: vars.$text-color-primary;
+    span {
+      width: 49px;
+      height: 2px;
+      background-color: vars.$text-color-primary;
+    }
   }
 }
