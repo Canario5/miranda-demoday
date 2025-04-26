@@ -67,6 +67,26 @@
   align-items: center;
 }
 
+//! TODO: Needs tweaks
+.search,
+.currency-selector,
+.header-cart,
+.header-profile {
+  margin-left: clamp(1.4375rem, 1.1954rem + 1.0329vw, 2.125rem); //23 = 34
+}
+
+//* hide elements on mobile + prepare their position for for transitions
+.currency-selector,
+.header-profile {
+  @media (max-width: 767px) {
+    width: 0;
+    margin-left: 0;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(75px) translateY(-150px);
+  }
+}
+
 .search {
   display: flex;
 
