@@ -16,12 +16,6 @@
 
 .logo {
   display: flex;
-  max-width: 233px;
-  max-height: 66px;
-  height: 100%;
-  aspect-ratio: 233 / 66;
-
-  background-color: vars.$logo-color;
   align-items: center;
   justify-content: center;
 
