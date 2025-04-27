@@ -24,22 +24,27 @@
   margin-right: 0.75em;
   background-color: vars.$logo-color;
 
-  transition:
-    opacity 0.3s ease,
-    transform 0.5s ease-out;
+  @media (max-width: 767px) {
+    transition:
+      opacity 0.3s ease,
+      transform 0.5s ease-out;
+  }
 }
 
 // --- Main Navigation  ---
 .main-navigation {
   //* Opened mobile menu
   @media (max-width: 767px) {
+    display: flex;
+    justify-items: center;
+    align-items: center;
     position: fixed;
     top: 0;
     right: 0;
     visibility: hidden;
     min-width: 100vw;
     min-height: 100vh;
-    background-color: deeppink; //!TODO: Change bg of mobile menu
+    background-color: vars.$background-color;
     padding-top: clamp(4.5rem, 3.3996rem + 4.6948vw, 7.625rem); //header heigth
     transform: translateY(-110%);
     z-index: 999;
@@ -49,14 +54,21 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    flex-grow: 1;
     gap: clamp(1em, 4vw, 50px);
+    font-size: 2em;
 
     @media (min-width: 768px) {
       flex-direction: row;
+      font-size: 1em;
     }
 
     &__item {
       text-wrap: nowrap;
+
+      a {
+        padding: 0.25em 0;
+      }
     }
   }
 }
@@ -124,12 +136,14 @@
 
         &::placeholder {
           color: vars.$search-gray;
+          transition: color 0.2s ease-in-out;
         }
       }
 
       &__submit {
-        width: 24px;
-        height: 24px;
+        transition:
+          transform 0.2s ease-in-out,
+          color 0.2s ease-in-out;
       }
     }
   }
@@ -152,15 +166,10 @@
 
 .currency-selector {
   position: relative;
+  transition: color 0.2s cubic-bezier(0.77, 0, 0.175, 1);
 
-  @media (max-width: 767px) {
-    position: fixed;
-    top: 16px;
-    left: calc(49px + 1em);
-    display: flex;
-    height: 49px;
-    font-size: 20px;
-    /*z-index: 1010;*/
+  &:hover {
+    color: vars.$link-color-primary;
   }
 
   &__list {
@@ -191,6 +200,11 @@
 
     &:hover {
       outline: none;
+
+      .header-cart__link__count {
+        color: vars.$link-color-primary;
+        border-color: vars.$link-color-primary;
+      }
     }
 
     &__count {
@@ -202,6 +216,9 @@
       border: 1px solid black;
       border-radius: 50%;
       font-size: 0.7145em;
+      transition:
+        color 0.2s cubic-bezier(0.77, 0, 0.175, 1),
+        border-color 0.2s cubic-bezier(0.77, 0, 0.175, 1);
 
       @media (min-width: 768px) {
         color: vars.$search-gray;
