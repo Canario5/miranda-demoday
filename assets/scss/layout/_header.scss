@@ -12,6 +12,10 @@
   justify-content: space-between;
   align-items: center;
   height: 100%;
+
+  @media (min-width: 767px) {
+    justify-content: unset;
+  }
 }
 
 .logo {
@@ -33,6 +37,8 @@
 
 // --- Main Navigation  ---
 .main-navigation {
+  flex-grow: 1;
+
   //* Opened mobile menu
   @media (max-width: 767px) {
     display: flex;
@@ -59,6 +65,7 @@
     font-size: 2em;
 
     @media (min-width: 768px) {
+      justify-content: center;
       flex-direction: row;
       font-size: 1em;
     }
@@ -77,6 +84,7 @@
 .header-actions {
   display: flex;
   align-items: center;
+  flex-grow: 1;
 }
 
 //! TODO: Needs tweaks
@@ -101,9 +109,24 @@
 
 .search {
   display: flex;
+  flex-grow: 1;
+  max-width: 298px;
 
   &__drawer {
-    @media (max-width: 767px) {
+    width: 100%;
+
+    /*&::after {
+      content: "";
+      position: relative;
+      display: block;
+      height: 2px;
+      left: -8px;
+      width: calc(100% + 8px + 13px);
+      max-width: 298px;
+      background: #c9c9c9;
+      pointer-events: none;
+    }*/
+
     @media (max-width: 1023px) {
       position: absolute;
       left: 0;
@@ -113,6 +136,13 @@
       padding-right: vars.$spacing-unit;
       transform: translateY(500px);
 
+      /*&::after {
+        left: 2px;
+        width: 100%;
+        max-width: calc(500px + 24px + 8px + 13px - (2 * 0.5em));
+        margin: 0 auto;
+      }*/
+
       //! to be more specific than same selector bellow
       input.search-input {
         max-width: 500px;
@@ -121,17 +151,25 @@
 
     &__form {
       display: flex;
-      justify-content: center;
+      /*justify-content: center;*/
+
+      &:hover {
+        .search-input::placeholder {
+          color: vars.$link-color-primary;
+        }
+        .search__drawer__form__submit {
+          color: vars.$link-color-primary;
+          transform: rotate(20deg) translateY(-0.25em) scale(1.15);
+        }
+      }
 
       .search-input {
-        border-bottom: 2px solid #c9c9c9;
-        padding-bottom: 1px;
         min-width: 135px;
-        max-width: 298px;
         width: 100%;
+        padding: 0.5em;
 
         &:focus {
-          outline: none; //note: add custom?
+          outline: none;
         }
 
         &::placeholder {
@@ -149,9 +187,6 @@
   }
 
   &__toggle {
-    width: 24px;
-    height: 24px;
-
     @media (min-width: 1024px) {
       display: none;
     }
@@ -159,6 +194,8 @@
 
   //! Achtung: styles two elements (toggle, submit) in search!
   .search-icon {
+    min-width: 24px;
+    min-height: 24px;
     width: 24px;
     height: 24px;
   }
