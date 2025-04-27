@@ -305,6 +305,10 @@
       transition: transform 0.3s ease;
     }
 
+    .header-actions {
+      gap: 0.75em;
+    }
+
     .currency-selector {
       order: -2;
       display: flex;
