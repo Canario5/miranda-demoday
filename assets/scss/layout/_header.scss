@@ -2,19 +2,18 @@
 @use "../abstracts/mixins" as mixins;
 
 .header {
-  height: clamp(4.5rem, 3.3996rem + 4.6948vw, 7.625rem); //375:72 = 1440:122
-  padding-top: clamp(1rem, 0.6919rem + 1.3146vw, 1.875rem); //16 = 20
-  padding-bottom: clamp(1.0625rem, 0.8644rem + 0.8451vw, 1.625rem); //17 = 26
+  //* for later
 }
 
-.header__container {
+.header-content {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  height: 100%;
+  height: clamp(4.5rem, 3.3996rem + 4.6948vw, 7.625rem); //375:72 = 1440:122
+  padding-top: clamp(1rem, 0.6919rem + 1.3146vw, 1.875rem); //16 = 20
+  padding-bottom: clamp(1.0625rem, 0.8644rem + 0.8451vw, 1.625rem); //17 = 26*/
 
-  @media (min-width: 767px) {
-    justify-content: unset;
+  @media (max-width: 767px) {
+    justify-content: space-between;
   }
 }
 
@@ -83,6 +82,7 @@
 // --- Header Actions ---
 .header-actions {
   display: flex;
+  justify-content: flex-end;
   align-items: center;
   flex-grow: 1;
 }
