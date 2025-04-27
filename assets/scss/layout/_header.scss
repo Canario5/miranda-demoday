@@ -108,65 +108,116 @@
 }
 
 .search {
-  display: flex;
-  flex-grow: 1;
-  max-width: 298px;
+  @media (min-width: 1024px) {
+    flex-grow: 1;
+    max-width: calc(298px - 9px - 13px);
+  }
 
-  &__drawer {
-    width: 100%;
+  // --- Search Toggle Button on mobile only
+  &__toggle {
+    padding: 0.5em;
+    transition:
+      transform 0.2s ease-in-out,
+      color 0.2s ease-in-out;
 
-    /*&::after {
-      content: "";
-      position: relative;
-      display: block;
-      height: 2px;
-      left: -8px;
-      width: calc(100% + 8px + 13px);
-      max-width: 298px;
-      background: #c9c9c9;
-      pointer-events: none;
-    }*/
+    &:hover {
+      color: vars.$link-color-primary;
+      transform: rotate(20deg) translateY(-0.25em) scale(1.15);
+    }
 
+    @media (min-width: 1024px) {
+      display: none;
+    }
+  }
+
+  // Overlay on mobile, inline on desktop
+  &__panel {
     @media (max-width: 1023px) {
       position: absolute;
-      left: 0;
       top: 0;
-      width: 100vw;
-      padding-left: vars.$spacing-unit;
-      padding-right: vars.$spacing-unit;
-      transform: translateY(500px);
+      left: 0;
+      right: 0;
+      display: flex;
+      margin: 0 auto;
+      width: 90%;
+      max-width: 500px;
+      padding: vars.$spacing-unit vars.$spacing-unit vars.$spacing-unit * 1.2
+        vars.$spacing-unit;
+      background-color: vars.$background-color;
+      box-shadow: 0 1px 7px rgba(0, 0, 0, 0.3);
+      z-index: 10000;
 
-      /*&::after {
-        left: 2px;
-        width: 100%;
-        max-width: calc(500px + 24px + 8px + 13px - (2 * 0.5em));
-        margin: 0 auto;
-      }*/
+      visibility: hidden;
+      opacity: 0;
+      transform: translateY(-3rem);
+      transition:
+        opacity 0.3s ease,
+        visibility 0s linear 0.3s,
+        transform 0.3s ease;
 
-      //! to be more specific than same selector bellow
-      input.search-input {
-        max-width: 500px;
+      &.is-active {
+        visibility: visible;
+        opacity: 1;
+        transform: translateY(3rem);
+        transition:
+          opacity 0.3s ease,
+          visibility 0s linear 0s,
+          transform 0.3s ease;
       }
+    }
+
+    @media (min-width: 1024px) {
+      display: block;
+      position: static;
+      visibility: visible;
+      opacity: 1;
     }
 
     &__form {
       display: flex;
-      /*justify-content: center;*/
+      flex-grow: 1;
+      position: relative;
 
-      &:hover {
-        .search-input::placeholder {
+      &::after {
+        content: "";
+        position: absolute;
+        /*display: block;*/
+        height: 1px;
+        box-shadow: 0 0.5px 1px rgba(0, 0, 0, 0.2);
+        background: #c9c9c9;
+        bottom: -6px;
+        left: 50%;
+        transform: translateX(
+          calc(-50% + 2px)
+        ); //design shift 13 - 9 = 4x / 2 = 2px
+        // 100% + (2* padding submit btn) - (2* padding input) + magic numbers from design)
+        width: calc(100% + (2 * 0.5em) + (2 * 0.5em) - 9px - 13px);
+        transition: background-color 0.2s ease-in-out;
+      }
+
+      &:hover,
+      &:focus-within {
+        &::after {
+          background-color: vars.$link-color-primary;
+        }
+        .search__panel__form__input::placeholder {
           color: vars.$link-color-primary;
         }
-        .search__drawer__form__submit {
+        .search__panel__form__submit {
           color: vars.$link-color-primary;
           transform: rotate(20deg) translateY(-0.25em) scale(1.15);
         }
       }
 
-      .search-input {
-        min-width: 135px;
-        width: 100%;
+      &__input {
+        flex-grow: 1;
+
         padding: 0.5em;
+        font-size: 1.25em;
+
+        @media (min-width: 1024px) {
+          font-size: 1em;
+        }
 
         &:focus {
           outline: none;
@@ -179,16 +230,11 @@
       }
 
       &__submit {
+        padding: 0 0.5em;
         transition:
           transform 0.2s ease-in-out,
           color 0.2s ease-in-out;
       }
-    }
-  }
-
-  &__toggle {
-    @media (min-width: 1024px) {
-      display: none;
     }
   }
 

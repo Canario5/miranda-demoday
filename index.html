@@ -46,88 +46,103 @@
           </ul>
         </nav>
 
-        <!-- Header Actions (Search, Currency, Cart, Profile) -->
-        <div class="header-actions">
-          <div class="search">
-            <div class="search__drawer" aria-hidden="true">
-              <form
-                class="search__drawer__form"
-                action="/vyhledavani"
-                method="get"
-              >
-                <input
-                  class="search-input"
-                  aria-label="Search"
-                  type="search"
-                  name="term"
-                  placeholder="Napište, co hledáte"
-                  required
-                />
+            <!-- Header Actions (Search, Currency, Cart, Profile) -->
+            <div class="header-actions">
+              <div class="search js-search">
+                <!-- Toggle Button (Mobile Only) -->
                 <button
-                  class="search__drawer__form__submit"
-                  aria-label="Search"
-                  type="submit"
+                  type="button"
+                  class="search__toggle js-search-toggle"
+                  aria-label="Open search panel"
+                  aria-expanded="false"
+                  aria-controls="search-panel"
                 >
                   <svg class="search-icon">
                     <use xlink:href="/__spritemap#sprite-search"></use>
                   </svg>
                 </button>
-              </form>
+
+                <!-- Search Panel (Overlay on Mobile, Inline on Desktop) -->
+                <div
+                  class="search__panel js-search-panel"
+                  id="search-panel"
+                  hidden
+                >
+                  <form class="search__panel__form">
+                    <input
+                      class="search__panel__form__input"
+                      aria-label="Search"
+                      type="search"
+                      name="term"
+                      placeholder="Napište, co hledáte"
+                      title="Toto pole je povinné."
+                      required
+                    />
+                    <button
+                      class="search__panel__form__submit"
+                      aria-label="Submit search"
+                      type="submit"
+                    >
+                      <svg class="search-icon">
+                        <use xlink:href="/__spritemap#sprite-search"></use>
+                      </svg>
+                    </button>
+                  </form>
+                </div>
+              </div>
+
+              <div class="currency-selector">
+                <select
+                  class="currency-selector__list"
+                  aria-label="Change currency"
+                >
+                  <option value="CZK" selected>CZK</option>
+                  <option value="EUR">EUR</option>
+                  <option value="USD">USD</option>
+                  <option value="GBP">GBP</option>
+                </select>
+                <svg class="currency-selector__icon">
+                  <use xlink:href="/__spritemap#sprite-arrow_down"></use>
+                </svg>
+              </div>
+
+              <!-- Header cart (Always Visible) -->
+              <div class="header-cart">
+                <a
+                  href="#"
+                  class="header-cart__link"
+                  aria-label="Shopping cart"
+                >
+                  <div class="header-cart__link__text">Košík</div>
+                  <div class="header-cart__link__count">2</div>
+                </a>
+              </div>
+
+              <!-- Profile Link (Hidden on Mobile, Visible Desktop) -->
+              <div class="header-profile">
+                <a
+                  href="#"
+                  class="header-profile__link"
+                  aria-label="User profile"
+                >
+                  <svg class="header-profile__link__icon">
+                    <use xlink:href="/__spritemap#sprite-menu_profile"></use>
+                  </svg>
+                </a>
+              </div>
+
+              <!-- Mobile Menu Toggle -->
+              <button
+                class="mobile-menu-toggle js-mobile-menu-toggle"
+                aria-label="Open mobile menu"
+                aria-expanded="false"
+                aria-controls="main-navigation"
+              >
+                <span></span>
+                <span></span>
+              </button>
             </div>
-
-            <button
-              class="search__toggle"
-              aria-label="Toggle search"
-              type="button"
-            >
-              <svg class="search-icon">
-                <use xlink:href="/__spritemap#sprite-search"></use>
-              </svg>
-            </button>
           </div>
-
-          <div class="currency-selector">
-            <select
-              class="currency-selector__list"
-              aria-label="Change currency"
-            >
-              <option value="CZK" selected>CZK</option>
-              <option value="EUR">EUR</option>
-              <option value="USD">USD</option>
-              <option value="GBP">GBP</option>
-            </select>
-            <svg class="currency-selector__icon">
-              <use xlink:href="/__spritemap#sprite-arrow_down"></use>
-            </svg>
-          </div>
-
-          <!-- Header cart (Always Visible) -->
-          <div class="header-cart">
-            <a href="#" class="header-cart__link" aria-label="Shopping cart">
-              <div class="header-cart__link__text">Košík</div>
-              <div class="header-cart__link__count">2</div>
-            </a>
-          </div>
-
-          <!-- Profile Link (Hidden on Mobile, Visible Desktop) -->
-          <div class="header-profile">
-            <a href="#" class="header-profile__link" aria-label="User profile">
-              <svg class="header-profile__link__icon">
-                <use xlink:href="/__spritemap#sprite-menu_profile"></use>
-              </svg>
-            </a>
-          </div>
-
-          <!-- Mobile Menu Toggle -->
-          <button
-            class="mobile-menu-toggle js-mobile-menu-toggle"
-            aria-label="Open mobile menu"
-            aria-expanded="false"
-            aria-controls="main-navigation"
-          >
-            <span></span>
-            <span></span>
-          </button>
         </div>
       </div>
     </header>
