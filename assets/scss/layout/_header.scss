@@ -173,11 +173,11 @@
   }
 
   &__list {
-    padding-right: calc(1em + 8px);
+    padding: 0.5em 1.5em 0.5em 0.5em;
     cursor: pointer;
 
     &:focus {
-      outline: 1px solid vars.$neutral-dark;
+      outline: 0;
     }
   }
   &__icon {
