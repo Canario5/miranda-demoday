@@ -103,17 +103,22 @@
       align-items: center;
       justify-content: flex-end;
       z-index: 1;
-      padding-bottom: vars.$spacing-unit * 2;
     }
   }
 
   &__title {
     @extend %typography-medium-to-large-heading;
     color: vars.$color-white;
-    margin-bottom: vars.$spacing-unit;
+    max-width: 90%;
+    margin-bottom: clamp(
+      1.5rem,
+      0.1576rem + 5.7277vw,
+      5.3125rem + 0.5rem
+    ); // 24 -> 85px+0,5rem
   }
 
   &__link {
+    margin-bottom: vars.$space-xxl;
     transition:
       transform 0.3s ease-in-out,
       box-shadow 0.3s ease-in-out;
