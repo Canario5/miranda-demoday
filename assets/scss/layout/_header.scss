@@ -38,7 +38,7 @@
 
 // --- Main Navigation  ---
 .main-navigation {
-  flex-grow: 1;
+  flex-grow: 2;
 
   //* Opened mobile menu
   @include mq.max767px {
@@ -65,9 +65,8 @@
     gap: clamp(1em, 4vw, 50px);
     font-size: 2em;
 
-    @media (min-width: 768px) {
-      justify-content: center;
     @include mq.min768px {
+      justify-content: end;
       flex-direction: row;
       font-size: 1em;
     }
@@ -113,7 +112,8 @@
 .search {
   @include mq.min1024px {
     flex-grow: 1;
-    max-width: calc(298px - 9px - 13px);
+    margin-right: 10px;
+    max-width: calc(298px - 9px - 13px + 10px);
   }
 
   // --- Search Toggle Button on mobile only
@@ -184,7 +184,6 @@
       &::after {
         content: "";
         position: absolute;
-        /*display: block;*/
         height: 1px;
         box-shadow: 0 0.5px 1px rgba(0, 0, 0, 0.2);
         background: #c9c9c9;
@@ -214,7 +213,6 @@
 
       &__input {
         flex-grow: 1;
-
         padding: 0.5em;
         font-size: 1.25em;
 
@@ -342,6 +340,12 @@
     margin-left: 33px;
     z-index: 9999;
 
+    &:hover {
+      span {
+        background-color: vars.$link-color-primary;
+      }
+    }
+
     span {
       width: 49px;
       height: 2px;
@@ -353,13 +357,12 @@
 .header-profile,
 .currency-selector {
   //? Width animates when menu close - Search Toggle and Cart slide because width reducing
-  //* transform not here; prefer it to disable floating on resize and when menu closing
+  //? transform not here; prefer it to disable floating on resize and when menu closing
   //* Opacity reducing on menu close (without transform instant) + when resize to desktop
   //* margin ONLY for resizing effect to desktop, can be removed, but its noice with opacity
-  transition:
-    opacity 0.75s ease,
-    width 0.5s ease,
-    margin 0.3s ease;
+  transition: opacity 0.75s ease;
+  /*width 0.5s ease,
+    margin 0.3s ease;*/
 }
 
 // --- Mobile Menu Active State ---
