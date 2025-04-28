@@ -1,4 +1,69 @@
 .btn {
-  display: inline-block;
-  background: deepskyblue;
+  @extend %typography-base;
+  display: grid;
+  place-items: center center;
+  background: vars.$background-color;
+  color: vars.$text-color-primary;
+  transition: color 0.2s vars.$transition-easing-custom;
+
+  &:hover {
+    color: vars.$link-color-primary;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: inherit;
+    z-index: -1;
+    transform: scale(1);
+    transition: transform 0.2s ease;
+  }
+
+  &:hover::before {
+    transform: scale(1.1, 1.15);
+  }
+
+  &:active {
+    transform: scale(0.98);
+    background-color: darken(vars.$background-color, 5%);
+    transition:
+      transform 0.1s ease,
+      background-color 0.1s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  &:focus-visible {
+    outline: 2px solid vars.$primary-color;
+    outline-offset: 2px;
+    box-shadow:
+      0 0 0 4px rgba(vars.$primary-color, 0.2),
+      0 0 0 2px vars.$primary-color;
+    z-index: 10;
+    transition:
+      outline 0.2s ease,
+      box-shadow 0.2s ease;
+    transform: scale(1.02);
+  }
+
+  &:focus-visible:hover {
+    box-shadow:
+      0 0 0 4px rgba(vars.$primary-color, 0.3),
+      0 0 0 2px darken(vars.$primary-color, 10%);
+  }
+
+  &--primary {
+    width: clamp(11.3125rem, 9.9481rem + 5.8216vw, 15.1875rem);
+    height: clamp(2.7rem, 2.3743rem + 1.3897vw, 3.625rem);
+    border: 2px solid vars.$background-color;
+    transform: scale(1);
+    transition:
+      transform 0.25s ease,
+      background-color 0.2s ease;
+  }
+
+  &--outlined {
+    @extend .btn--primary;
+    border: 1px solid vars.$text-color-primary;
+  }
 }
