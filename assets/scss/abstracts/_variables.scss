@@ -25,7 +25,30 @@ $font-weight-bold: 700;
 $letter-spacing-default: 0;
 
 // Spacing
-$spacing-unit: 1rem;
+$spacing-unit: 1rem; // Base unit (16px)
+
+// Fluid Spacing System (Sorted by minimum value)
+$space-xs: clamp(0.3125rem, 0.2025rem + 0.4695vw, 0.625rem); // 5px → 10px
+$space-xxs: clamp(0.5rem, 0.3239rem + 0.7512vw, 1rem); // 8px → 16px
+$space-xxxs: clamp(0.6944rem, 0.6009rem + 0.399vw, 0.96rem); // 11px → 15px
+$space-xsm: clamp(0.72rem, 0.4233rem + 1.2657vw, 1.5625rem); // 1,5px -> 25px
+$space-sm: clamp(1rem, 0.8239rem + 0.7512vw, 1.5rem); // 16px → 24px
+$space-md: clamp(1.2rem, 0.9623rem + 1.0141vw, 1.875rem); // 19px → 30px
+$space-lg: clamp(1.8rem, 1.4985rem + 1.2864vw, 2.6563rem); // 29px → 43px
+$space-xl: clamp(1.875rem, 1.2148rem + 2.8169vw, 3.75rem); // 30px → 60px
+$space-xxl: clamp(2.16rem, 1.7514rem + 1.7432vw, 3.3203rem); // 35px → 53px
+$space-xxxl: clamp(2.25rem, 1.3917rem + 3.662vw, 4.6875rem); // 36px → 75px
+$space-kilo: clamp(2.592rem, 2.0433rem + 2.3412vw, 4.1504rem); // 41px → 66px
+$space-mega: clamp(
+  3.24rem,
+  1.8019rem + 6.1359vw,
+  7.3242rem
+); // 51.84px → 117.1875px
+$space-giga: clamp(
+  3.888rem,
+  2.0333rem + 7.9133vw,
+  9.1553rem
+); // 62.208px → 146.4844px
 
 $border-radius-base: 4px;
 
