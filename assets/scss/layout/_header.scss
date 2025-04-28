@@ -1,5 +1,6 @@
 @use "../abstracts/variables" as vars;
 @use "../abstracts/mixins" as mixins;
+@use "../abstracts/media-queries" as mq;
 @use "../base/typography";
 
 .header {
@@ -13,7 +14,7 @@
   padding-top: clamp(1rem, 0.6919rem + 1.3146vw, 1.875rem); //16 = 20
   padding-bottom: clamp(1.0625rem, 0.8644rem + 0.8451vw, 1.625rem); //17 = 26*/
 
-  @media (max-width: 767px) {
+  @include mq.max767px {
     justify-content: space-between;
   }
 }
@@ -28,7 +29,7 @@
   margin-right: 0.75em;
   background-color: vars.$logo-color;
 
-  @media (max-width: 767px) {
+  @include mq.max767px {
     transition:
       opacity 0.3s ease,
       transform 0.5s ease-out;
@@ -40,7 +41,7 @@
   flex-grow: 1;
 
   //* Opened mobile menu
-  @media (max-width: 767px) {
+  @include mq.max767px {
     display: flex;
     justify-items: center;
     align-items: center;
@@ -66,6 +67,7 @@
 
     @media (min-width: 768px) {
       justify-content: center;
+    @include mq.min768px {
       flex-direction: row;
       font-size: 1em;
     }
@@ -99,7 +101,7 @@
 //* hide elements on mobile + prepare their position for for transitions
 .currency-selector,
 .header-profile {
-  @media (max-width: 767px) {
+  @include mq.max767px {
     width: 0;
     margin-left: 0;
     opacity: 0;
@@ -109,7 +111,7 @@
 }
 
 .search {
-  @media (min-width: 1024px) {
+  @include mq.min1024px {
     flex-grow: 1;
     max-width: calc(298px - 9px - 13px);
   }
@@ -126,14 +128,14 @@
       transform: rotate(20deg) translateY(-0.25em) scale(1.15);
     }
 
-    @media (min-width: 1024px) {
+    @include mq.min1024px {
       display: none;
     }
   }
 
   // Overlay on mobile, inline on desktop
   &__panel {
-    @media (max-width: 1023px) {
+    @include mq.max1023px {
       position: absolute;
       top: 0;
       left: 0;
@@ -167,7 +169,7 @@
       }
     }
 
-    @media (min-width: 1024px) {
+    @include mq.min1024px {
       display: block;
       position: static;
       visibility: visible;
@@ -216,7 +218,7 @@
         padding: 0.5em;
         font-size: 1.25em;
 
-        @media (min-width: 1024px) {
+        @include mq.min1024px {
           font-size: 1em;
         }
 
@@ -304,7 +306,7 @@
         color 0.2s cubic-bezier(0.77, 0, 0.175, 1),
         border-color 0.2s cubic-bezier(0.77, 0, 0.175, 1);
 
-      @media (min-width: 768px) {
+      @include mq.min768px {
         color: vars.$search-gray;
         border-color: vars.$search-gray;
       }
@@ -314,7 +316,7 @@
 
 // Header Profile
 .header-profile {
-  @media (min-width: 768px) {
+  @include mq.min768px {
     display: block;
     width: max-content;
 
@@ -330,7 +332,7 @@
 
 // Mobile Menu Toggle
 .mobile-menu-toggle {
-  @media (max-width: 767px) {
+  @include mq.max767px {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -374,7 +376,7 @@
       margin 0.5s ease;
   }
 
-  @media (max-width: 767px) {
+  @include mq.max767px {
     .logo {
       opacity: 0;
       visibility: hidden;

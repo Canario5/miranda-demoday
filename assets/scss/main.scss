@@ -4,13 +4,14 @@
 // Abstracts
 @use "abstracts/variables" as vars;
 @use "abstracts/mixins" as mixins;
+@use "abstracts/media-queries" as mq;
 
 // Base
 @use "base/reset";
 @use "base/base";
 @use "base/typography";
 
-// Componenty
+// Component
 @use "components/buttons";
 
 // Layout
