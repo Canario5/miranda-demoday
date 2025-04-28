@@ -1,8 +1,9 @@
 @use "../abstracts/variables" as vars;
 @use "../abstracts/mixins" as mixins;
+@use "../base/typography";
 
 .header {
-  //* for later
+  @extend %typography-base;
 }
 
 .header-content {

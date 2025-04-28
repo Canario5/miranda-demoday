@@ -4,11 +4,14 @@
 @use "../base/typography";
 
 body {
-  @extend %typography-base;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
   background-color: vars.$background-color;
+  font-family: vars.$font-family-base;
+  font-weight: vars.$font-weight-regular;
+  line-height: 1.5;
+  letter-spacing: vars.$letter-spacing-default;
 }
 
 main {
