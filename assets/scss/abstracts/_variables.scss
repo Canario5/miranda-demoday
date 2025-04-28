@@ -36,6 +36,7 @@ $space-xxxs: clamp(0.6944rem, 0.6009rem + 0.399vw, 0.96rem); // 11px → 15px
 $space-xsm: clamp(0.72rem, 0.4233rem + 1.2657vw, 1.5625rem); // 1,5px -> 25px
 $space-sm: clamp(1rem, 0.8239rem + 0.7512vw, 1.5rem); // 16px → 24px
 $space-md: clamp(1.2rem, 0.9623rem + 1.0141vw, 1.875rem); // 19px → 30px
+$space-xmd: clamp(1.5625rem, 1.0563rem + 2.1596vw, 3rem); // 25px -> 48px
 $space-lg: clamp(1.8rem, 1.4985rem + 1.2864vw, 2.6563rem); // 29px → 43px
 $space-xl: clamp(1.875rem, 1.2148rem + 2.8169vw, 3.75rem); // 30px → 60px
 $space-xxl: clamp(2.16rem, 1.7514rem + 1.7432vw, 3.3203rem); // 35px → 53px
