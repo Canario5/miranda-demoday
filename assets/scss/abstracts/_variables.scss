@@ -27,6 +27,8 @@ $letter-spacing-default: 0;
 // Spacing
 $spacing-unit: 1rem;
 
+$border-radius-base: 4px;
+
 // Breakpoints
 $breakpoints: (
   px767: 47.9375em,
@@ -35,6 +37,4 @@ $breakpoints: (
   px1024: 64em,
 );
 
-  // 1440px
-  xl: 90em
-);
+$transition-easing-custom: cubic-bezier(0.77, 0, 0.175, 1);

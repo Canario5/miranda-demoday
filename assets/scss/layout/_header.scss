@@ -250,7 +250,7 @@
 
 .currency-selector {
   position: relative;
-  transition: color 0.2s cubic-bezier(0.77, 0, 0.175, 1);
+  transition: color 0.2s vars.$transition-easing-custom;
 
   &:hover {
     color: vars.$link-color-primary;
@@ -301,8 +301,8 @@
       border-radius: 50%;
       font-size: 0.7145em;
       transition:
-        color 0.2s cubic-bezier(0.77, 0, 0.175, 1),
-        border-color 0.2s cubic-bezier(0.77, 0, 0.175, 1);
+        color 0.2s vars.$transition-easing-custom,
+        border-color 0.2s vars.$transition-easing-custom;
 
       @include mq.min768px {
         color: vars.$search-gray;
@@ -337,7 +337,7 @@
     gap: 12px;
     background: transparent;
     aspect-ratio: 1 / 1;
-    margin-left: 33px;
+    margin-left: 2.4285em;
     z-index: 9999;
 
     &:hover {
@@ -350,6 +350,7 @@
       width: 49px;
       height: 2px;
       background-color: vars.$text-color-primary;
+      transition: background-color 0.2s vars.$transition-easing-custom;
     }
   }
 }
