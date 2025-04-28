@@ -16,6 +16,17 @@ main {
   background-color: lightgoldenrodyellow;
 }
 
+a {
+  color: inherit;
+  @include mixins.text-hover-color(
+    vars.$link-color-primary,
+    0.2s,
+    vars.$transition-easing-custom
+  );
+
+  cursor: pointer;
+}
+
 /* Anything that has been anchored to should have extra scroll margin */
 // https://piccalil.li/blog/a-more-modern-css-reset/
 :target {
