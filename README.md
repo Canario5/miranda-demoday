@@ -1,40 +1,38 @@
 # DEMODay MirandaMedia
 
-## Grafický návrh
+The party is in the `demoday-base-second-try` branch.
 
-Grafický návrh je část staršího projektu, konkrétně pouze Homepage jednoduchého e-shopu, zabývajícího se prodejem investičních kovů.
+Dočasně dostupné na:
+https://miranda-demoday.pages.dev (Pozn.: automatický build jde z main, která může být pozadu oproti výše uvedené)
 
-URL: [Figma.com](https://www.figma.com/file/mNSNesuEHkSvwnZHsBwLxt/DemoDay?node-id=0%3A1)
+Projekt k náhledu na lokálu se spustí:
+```
+npm run build
+npm run preview
+```
 
-## Technologie
+Používám Vite kvůli hot reloadu. V projektu je Gerilless, ale nepoužíval jsem ho. Jde spíš o takovou záložku.
+V projektu používám vite-plugin-svg-spritemap, aby mi trochu usnadňoval práci se SVG ikonami. Ale zvládl bych to i bez něj.
 
-K realizaci zadání prosím nepoužívej žádné frameworky ani knihovny. Nepotřebuješ ani jQuery, Bootstrap ani nic jim podobného. Používej HTML, CSS a čistý (nebo také Vanilla) JavaScript. Pokud jsi zvyklý na CSS preprocesor, jeho použití je samozřejmě vítáno.
 
-## Zadání
+Pozn.: Kód přejetý Prettierem, předpokládám, že "stylizace" kódu taky může hrát v hodnocení roli. A ten kdo není zvyklý na Prettier ve stylu:
 
-Naklonuj si tento repozitář k sobě do PC. V repozitáři máš připravené uplně základní HTML, adresářovou strukturu a zdrojová data pro produkty. Vytvoř si CSS / SCSS / LESS a JavaScript a nalinkuj si je do připraveného HTML.
+```
+<nav
+              class="main-navigation js-main-navigation"
+              id="main-navigation"
+              aria-label="Main navigation"
+              aria-hidden="true"
+            >
+            </nav>
+```
 
-1. Stránka musí být plně responsivní, grafický návrh obsahuje pouze mobilní a desktopovou verzi, u ostatních velikostí displayů si musíš poradit dle svého nejlepšího vědomí a svědomí.
-2. Zajisti, aby všechny aktivní prvky na stránce měly příslušný hover efekt. Pokud není v návrhu naznačený, vymysli si svůj.
-3. Nemusíš vytvářet žádné další podstránky, ale dbej na to, aby odkaz byl odkazem a tlačítko tlačítkem.
-4. Na stránce je sekce s produkty. Data pro tyto produkty najdeš v souboru /assets/src/products.json.
-    - Načti tento soubor, a pomocí JavaScriptu vytvoř kompletní elementy produktů a vlož je do stránky.
-        - HINT: Pro načtení ze souboru použij "fetch"
-        - HINT: JSON obsahuje chyby, použij validátor, chyby najdi a odstraň
-        - HINT: Pro vytvoření elementu se používá "createElement", pro vložení do stránky například "appendChild" nebo "insertBefore"
-    - Blok s produkty má 3 záložky, každý produkt v JSONu má uvedenou konkrétní kategorii.
-    - Pomocí JavaScriptu zajisti, aby mezi jednotlivými záložkami šlo přepínat.
-        - HINT: K tomuto budeš určitě potřebovat "addEventListener"
-    - Pro každou záložku obsahuje soubor 8 produktů, defaultně zobrazuj pouze 4 a po kliknutí na tlačíko "Zobrazit více produktů" zobraz všechny
-    - Pokud se na řešení pomocí JavaScriptu necítíš, vytvoř kód přímo v HTML
-        - HINT: Věř ale, že tato část pomocí JavaScriptu je pro nás nesmírně důležitá a přinese ti velkou spoustu plusových bodů
-5. Stránka obsahuje i formuláře. Zajisti, aby formuláře byly sémanticky správně, akci pro ně samozřejmě vytvářet nemusíš.
-6. Hned pod hlavičkou je "Carousel", ten můžeš ponechat statický a pouze pokud ti zbyde nějaký čas, můžeš ho rozpohybovat.
-    - HINT: Pro tohle můžeš použít JS knihovnu, nám se osvědčil například Swiper.
-7. Fonty můžeš použít z CDN fonts.google.com, ale pokud je zvládneš stáhnout a importovat z lokálního disku, jsou to opět body navíc.
+vs
 
-## Zpracování
+```
+<nav class="main-navigation js-main-navigation" id="main-navigation" aria-label="Main navigation" aria-hidden="true">
 
-Buď důsledný. Prioritní je vzhledová stránka. Nedovol, aby se ti při jakémkoliv rozlišení překrývaly elementy nebo třeba "utíkaly" ze stránky. Preciznost a pixel perfect design je pro nás alfa-omega.
+    </nav>
+```
 
-Snaž se psát čitý, přehledný a vizuálně hezký kód, využívej DRY princip. Nebudeš jediný, kdo ho bude číst.
+...se snadno může na první pohled zhrozit. Obzvlášť, když používám jen na dvě mezery odsazení místo obvyklejších čtyř či tabu, tak celý výsledek může vypadat exotičtěji... Nemám problém používat odlišnou stylizaci kódu, v minulé firmě se používaly 4mezery a neměl jsem problém dodržovat firemní standardy.
