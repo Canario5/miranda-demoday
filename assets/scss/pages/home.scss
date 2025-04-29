@@ -1,5 +1,6 @@
 @use "../abstracts/mixins" as mixins;
 @use "../abstracts/variables" as vars;
+@use "../abstracts/media-queries" as mq;
 @use "../base/typography";
 
 .hero {
@@ -27,16 +28,6 @@
 
   .hero__content__scroll-text {
     display: none;
-    /*
-        @media (min-width: map-get(vars.$breakpoints, px1024)) {
-          display: block;
-          position: relative;
-          right: 50%;
-          bottom: 50%;
-          transform: rotate(-90deg) translateX(-140%) translateY(-15px);
-          transform-origin: right;
-          white-space: nowrap;
-          letter-spacing: 2px; }*/
   }
 }
 
@@ -129,6 +120,57 @@
     &:hover {
       transform: scale(1.05);
       box-shadow: vars.$neutral-dark 0 0 0 2px inset;
+    }
+  }
+}
+
+.bestsellers {
+  background-color: vars.$background-color;
+  position: relative;
+  z-index: 0;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 90px;
+    background-color: vars.$secondary-color;
+    z-index: -1;
+  }
+
+  &__container {
+    max-width: vars.$site-max-width;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__title {
+    @extend %typography-medium-to-large-heading;
+    font-weight: vars.$font-weight-regular;
+    color: vars.$color-white;
+    margin-top: vars.$space-xxxl;
+    margin-bottom: vars.$space-xl;
+  }
+
+  &__grid {
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(2, 1fr);
+
+    > .card-vertical:nth-child(n + 3) {
+      display: none;
+    }
+
+    @include mq.min768px {
+      grid-template-columns: repeat(4, 1fr);
+
+      > .card-vertical:nth-child(n + 3) {
+        display: block;
+      }
     }
   }
 }

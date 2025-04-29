@@ -7,6 +7,21 @@ $sprites: (
 		width: 24px,
 		height: 24px
 	),
+	'arrow-head-down': (
+		uri: "data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3e%3cpath d='M12 17.414 3.293 8.707l1.414-1.414L12 14.586l7.293-7.293 1.414 1.414z'/%3e%3c/svg%3e",
+		width: 24px,
+		height: 24px
+	),
+	'arrow-head-right': (
+		uri: "data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3e%3cpath d='M7.293 4.707 14.586 12l-7.293 7.293 1.414 1.414L17.414 12 8.707 3.293z'/%3e%3c/svg%3e",
+		width: 24px,
+		height: 24px
+	),
+	'arrow-right-head': (
+		uri: "data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='10' height='16' fill='none' viewBox='0 0 10 16'%3e%3cpath stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m1 15 8-7-8-7'/%3e%3c/svg%3e",
+		width: 10px,
+		height: 16px
+	),
 	'arrow-right': (
 		uri: "data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='50' height='16' fill='none' viewBox='0 0 50 16'%3e%3cpath stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' d='m41 15 8-7-8-7'/%3e%3cpath fill='currentColor' d='M49 8H1z'/%3e%3cpath stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' d='M49 8H1'/%3e%3c/svg%3e",
 		width: 50px,
