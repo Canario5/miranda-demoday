@@ -66,7 +66,7 @@ const initProductList = () => {
       img.src = product.imgSrc;
       img.alt = product.title || "Produkt";
     } else {
-      img.src = "/assets/img/missing-product-image.jpg";
+      img.src = "/assets/img/missing-product-image.png";
       img.alt = "Obrázek se nenačetl.";
     }
     img.loading = "lazy";
