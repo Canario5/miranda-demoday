@@ -1,6 +1,7 @@
 const initProductList = () => {
   const productGrid = document.querySelector(".js-products-grid");
   const filterContainer = document.querySelector(".products__filters");
+  const loadMoreBtn = document.querySelector(".js-load-more-products");
 
   if (!productGrid || !filterContainer) {
     console.error("Product list container or filters not found.");
@@ -9,14 +10,11 @@ const initProductList = () => {
 
   const filterButtons = filterContainer.querySelectorAll(".btn[data-filter]");
   let allProducts = [];
+  let currentCategory = null;
+  let showAll = false;
 
   const createProductCard = (product) => {
-    if (!product) {
-      console.warn("Attempted to create card for undefined product");
-      return null;
-    }
-
-    // Validate critical properties
+    if (!product) return null;
     const requiredProps = ["title", "imgSrc", "price"];
     const missingProps = requiredProps.filter((prop) => !product[prop]);
 
@@ -62,13 +60,8 @@ const initProductList = () => {
     const figure = document.createElement("figure");
     figure.className = "product-card__image";
     const img = document.createElement("img");
-    if (product.imgSrc) {
-      img.src = product.imgSrc;
-      img.alt = product.title || "Produkt";
-    } else {
-      img.src = "/assets/img/missing-product-image.png";
-      img.alt = "Obrázek se nenačetl.";
-    }
+    img.src = product.imgSrc || "/assets/img/missing-product-image.png";
+    img.alt = product.title || "Produkt";
     img.loading = "lazy";
     figure.appendChild(img);
     article.appendChild(figure);
@@ -118,20 +111,28 @@ const initProductList = () => {
    * Clears the product grid and renders products matching the specified category.
    * @param {string} category - The category to filter by (e.g., 'news', 'bestsellers').
    */
-  const renderProducts = (category) => {
+  const renderProducts = (category, limit = 4) => {
     productGrid.innerHTML = "";
 
     const filteredProducts = allProducts.filter(
       (product) => product.category === category,
     );
 
-    if (filteredProducts.length > 0) {
-      filteredProducts.forEach((product) => {
+    const productsToShow = filteredProducts.slice(0, limit);
+
+    if (productsToShow.length > 0) {
+      productsToShow.forEach((product) => {
         const cardElement = createProductCard(product);
-        productGrid.appendChild(cardElement);
+        if (cardElement) productGrid.appendChild(cardElement);
       });
     } else {
       productGrid.innerHTML = "<p>Žádné produkty v této kategorii.</p>";
+    }
+
+    if (filteredProducts.length > productsToShow.length) {
+      loadMoreBtn.disabled = false;
+    } else {
+      loadMoreBtn.disabled = true;
     }
   };
 
@@ -145,9 +146,18 @@ const initProductList = () => {
         button.classList.toggle("is-active", button === clickedButton);
       });
 
-      renderProducts(activeFilter);
+      currentCategory = activeFilter;
+      showAll = false;
+      renderProducts(currentCategory, 4);
     }
   };
+
+  loadMoreBtn.addEventListener("click", () => {
+    if (currentCategory) {
+      showAll = true;
+      renderProducts(currentCategory, Infinity);
+    }
+  });
 
   fetch("/assets/src/products.json")
     .then((response) => {
@@ -162,11 +172,12 @@ const initProductList = () => {
       const initialActiveButton = filterContainer.querySelector(
         ".btn.is-active[data-filter]",
       );
-      const initialCategory = initialActiveButton
+      currentCategory = initialActiveButton
         ? initialActiveButton.dataset.filter
-        : "Novinky";
+        : products[0]?.category || "Novinky";
+      showAll = false;
 
-      renderProducts(initialCategory);
+      renderProducts(currentCategory, 4);
 
       filterContainer.addEventListener("click", handleFilterClick);
     })
