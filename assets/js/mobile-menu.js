@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", () => {
+const initMobileMenu = () => {
   const menuToggleButton = document.querySelector(".js-mobile-menu-toggle");
   const mainNavigation = document.querySelector(".js-main-navigation");
 
@@ -13,4 +13,6 @@ document.addEventListener("DOMContentLoaded", () => {
       mainNavigation.setAttribute("aria-hidden", String(isExpanded));
     });
   }
-});
+};
+
+export { initMobileMenu };

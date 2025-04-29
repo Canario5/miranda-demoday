@@ -321,18 +321,42 @@
         </div>
       </section>
 
-      <section class="offer-links">
-        <div class="container">
-          <div class="section__container">
-            <p>Offer Links Section Placeholder</p>
-          </div>
-        </div>
-      </section>
-
       <section class="products">
-        <div class="container">
-          <div class="section__container">
-            <p>Products Section Placeholder</p>
+        <div class="layout-padding">
+          <div class="content-container">
+            <h2 class="products__title">Naše produkty</h2>
+
+            <div class="products__filters">
+              <button
+                type="button"
+                class="btn btn--filter is-active"
+                data-filter="Novinky"
+              >
+                Novinky
+              </button>
+              <button
+                type="button"
+                class="btn btn--filter"
+                data-filter="Nejprodávanější"
+              >
+                Nejprodávanější
+              </button>
+              <button
+                type="button"
+                class="btn btn--filter"
+                data-filter="Doporučené"
+              >
+                Doporučené
+              </button>
+            </div>
+
+            <div class="products__grid js-products-grid"></div>
+
+            <div class="products__actions">
+              <button type="button" class="btn js-load-more-products">
+                Zobrazit více produktů
+              </button>
+            </div>
           </div>
         </div>
       </section>
