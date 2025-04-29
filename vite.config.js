@@ -5,7 +5,7 @@ export default defineConfig({
   plugins: [
     VitePluginSvgSpritemap("./assets/img/icons/*.svg", {
       styles: {
-        filename: "assets/scss/spritemap.scss",
+        filename: "./assets/scss/spritemap.scss",
         format: "scss",
       },
       svgo: {
