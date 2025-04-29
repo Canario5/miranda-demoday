@@ -98,10 +98,22 @@ p {
   letter-spacing: vars.$letter-spacing-default;
 }
 
+// HEADLINE MEDIUM (24px / 700 / 29px)
+// HEADLINE BIG (36px / 700 / 44px)
 %typography-medium-to-large-heading {
   font-family: vars.$font-family-base;
   font-weight: vars.$font-weight-bold;
   letter-spacing: vars.$letter-spacing-default;
   font-size: clamp(1.5rem, 1.2359rem + 1.1268vw, 2.25rem);
   line-height: clamp(1.8125rem, 1.4824rem + 1.4085vw, 2.75rem);
+}
+
+// SMALL TEXT (12px / 500 / 15px)
+// BASE TEXT (14px / 500 / 17px)
+%typography-small-to-base-text {
+  font-family: vars.$font-family-base;
+  font-weight: vars.$font-weight-regular;
+  letter-spacing: vars.$letter-spacing-default;
+  font-size: clamp(0.75rem, 0.706rem + 0.1878vw, 0.875rem);
+  line-height: clamp(0.9375rem, 0.8935rem + 0.1878vw, 1.0625rem);
 }
