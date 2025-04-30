@@ -60,7 +60,7 @@
 }
 
 .teasers {
-  padding: vars.$space-xmd 0 vars.$space-xxl;
+  padding: vars.$clamp-25-48 0 vars.$clamp-35-53;
   background-color: vars.$background-color;
   text-align: center;
 
@@ -114,7 +114,7 @@
   }
 
   &__link {
-    margin-bottom: vars.$space-xxl;
+    margin-bottom: vars.$clamp-35-53;
     transition:
       transform 0.3s ease-in-out,
       box-shadow 0.3s ease-in-out;
@@ -155,8 +155,8 @@
 
   &__title {
     @include typo.f-24-36($color: vars.$color-white);
-    margin-top: vars.$space-xxxl;
-    margin-bottom: vars.$space-xl;
+    margin-top: vars.$clamp-36-75;
+    margin-bottom: vars.$clamp-30-60;
   }
 
   &__grid {

@@ -40,7 +40,7 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    padding: vars.$space-xxs;
+    padding: vars.$clamp-8-16;
     color: vars.$color-white;
 
     &:hover {
@@ -51,7 +51,7 @@
   &__pretitle {
     @include typo.f-12-14($color: vars.$color-white);
     display: block;
-    margin-bottom: vars.$space-xs;
+    margin-bottom: vars.$clamp-5-10;
     opacity: 0.8;
   }
 
@@ -60,7 +60,7 @@
     flex-wrap: wrap;
     align-items: center;
     width: 100%;
-    row-gap: vars.$space-xs;
+    row-gap: vars.$clamp-5-10;
     height: 60px;
     position: relative;
     overflow: visible;
