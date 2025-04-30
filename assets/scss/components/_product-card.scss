@@ -1,0 +1,102 @@
+@use "../abstracts/variables" as vars;
+@use "../base/typography" as typo;
+
+$cl-8-16: vars.$clamp-8-16;
+
+.product-card {
+  position: relative;
+  display: grid;
+  grid-template-rows: auto 1fr;
+  gap: vars.$clamp-5-10;
+  border: 1px solid vars.$border-color;
+  padding: vars.$clamp-6-13 vars.$clamp-6-13;
+  transition:
+    transform 0.3s ease 0.05s,
+    box-shadow 0.3s ease 0.05s;
+
+  &:hover {
+    color: inherit;
+    transform: translateY(-4px) scale(1.08);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+
+  &__labels {
+    position: absolute;
+    top: 2em;
+    right: 0;
+    display: grid;
+    gap: 0.5rem;
+  }
+
+  &__label {
+    @include typo.f-12-18();
+    text-transform: capitalize;
+    color: vars.$color-white;
+    padding: 0.25rem $cl-8-16;
+
+    &--new {
+      background: vars.$highlight-color;
+    }
+
+    &--sale {
+      background: vars.$accent-color;
+    }
+
+    &--recommended {
+      background: skyblue;
+    }
+  }
+
+  &__image {
+    img {
+      aspect-ratio: 1/1;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__content {
+    display: grid;
+    align-items: end;
+    align-content: space-between;
+  }
+
+  &__title {
+    @include typo.f-12-18();
+    margin-bottom: vars.$clamp-6-13;
+  }
+
+  &__availability {
+    @include typo.f-12-14($color: vars.$highlight-color);
+  }
+
+  &__infobox {
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-content: space-between;
+    align-content: space-between;
+    row-gap: 0.4125em;
+    column-gap: 0.625em;
+  }
+
+  &__price {
+    @include typo.f-12-18();
+  }
+
+  &__cart-button {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    align-self: end;
+
+    width: 34px;
+    height: 34px;
+    background-color: vars.$secondary-color;
+
+    svg {
+      place-self: center;
+      color: vars.$color-white;
+    }
+    //
+  }
+}

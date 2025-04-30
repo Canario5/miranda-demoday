@@ -25,15 +25,17 @@ const initProductList = () => {
       return null;
     }
 
-    const article = document.createElement("article");
-    article.className = "product-card";
-    article.dataset.category = product.category;
+    const card = document.createElement("a");
+    card.className = "product-card";
+    card.dataset.category = product.category;
+    card.href = product.url || "#";
 
     // Labels
     const labelClass = "product-card__label";
     const flagModifiers = {
       new: "Novinka",
       sale: "Výprodej",
+      recommended: "Tip",
     };
 
     const header = document.createElement("header");
@@ -54,7 +56,7 @@ const initProductList = () => {
       header.appendChild(labelSpan);
     });
 
-    article.appendChild(header);
+    card.appendChild(header);
 
     // Image
     const figure = document.createElement("figure");
@@ -64,47 +66,47 @@ const initProductList = () => {
     img.alt = product.title || "Produkt";
     img.loading = "lazy";
     figure.appendChild(img);
-    article.appendChild(figure);
+    card.appendChild(figure);
 
     // Content (title, availability, price)
     const content = document.createElement("div");
     content.className = "product-card__content";
 
-    const title = document.createElement("h2");
+    const title = document.createElement("h3");
     title.className = "product-card__title";
     title.textContent = product.title;
     content.appendChild(title);
 
+    // Div infobox with children [availability], [price and cart button]
+    const infoBox = document.createElement("div");
+    infoBox.className = "product-card__infobox";
+
     const availability = document.createElement("p");
     availability.className = "product-card__availability";
     availability.textContent = product.availability || "Neznámá";
-    content.appendChild(availability);
+    infoBox.appendChild(availability);
 
     const price = document.createElement("p");
     price.className = "product-card__price";
     price.textContent = product.price
       ? `${product.price.toLocaleString("cs-CZ")} CZK`
       : "Cena nedostupná";
-    content.appendChild(price);
+    infoBox.appendChild(price);
 
-    article.appendChild(content);
-
-    // Footer with cart button
-    const footer = document.createElement("footer");
-    footer.className = "product-card__footer";
     const cartButton = document.createElement("button");
     cartButton.className = "product-card__cart-button";
     cartButton.setAttribute("aria-label", "Přidat do košíku");
-
     cartButton.innerHTML = `
-  <svg width="24" height="24">
-    <use href="/__spritemap#sprite-shopping-cart"></use>
-  </svg>
-`;
-    footer.appendChild(cartButton);
-    article.appendChild(footer);
+    <svg width="24" height="24">
+      <use href="/__spritemap#sprite-shopping-cart"></use>
+    </svg>
+  `;
+    infoBox.appendChild(cartButton);
 
-    return article;
+    content.appendChild(infoBox);
+    card.appendChild(content);
+
+    return card;
   };
 
   /**

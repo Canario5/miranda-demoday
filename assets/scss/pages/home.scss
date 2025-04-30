@@ -175,3 +175,59 @@
     }
   }
 }
+
+.products {
+  padding: vars.$clamp-35-53 0;
+  background-color: vars.$background-color;
+
+  &__filters {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: vars.$clamp-30-60;
+
+    > * {
+      margin: 0 1.5rem;
+    }
+
+    .btn--filter {
+      display: none;
+      font-size: 1rem;
+      color: vars.$text-color-secondary;
+      min-width: 80px;
+      width: max-content;
+      padding: 0.5rem 1rem;
+      transform: scale(1);
+
+      transition:
+        transform 0.3s ease,
+        box-shadow 0.2s ease;
+
+      @include mq.min768px {
+        display: inline-block;
+      }
+
+      &.is-active {
+        display: inline-block;
+        color: vars.$text-color-primary;
+        transform: scale(1.5);
+        z-index: 1;
+      }
+    }
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: vars.$clamp-15-22;
+    margin-bottom: vars.$clamp-30-60;
+  }
+
+  &__actions {
+    text-align: center;
+
+    .btn {
+      margin-top: vars.$clamp-19-30;
+    }
+  }
+}
