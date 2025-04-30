@@ -38,9 +38,7 @@
   max-width: 600px;
 
   .hero__subtitle {
-    font-size: clamp(0.875rem, 0.787rem + 0.3756vw, 1.125rem);
-    line-height: clamp(1.0625rem, 0.9525rem + 0.4695vw, 1.375rem);
-    font-weight: vars.$font-weight-regular;
+    @include typo.f-14($color: vars.$color-white);
     letter-spacing: 0.18em;
     text-transform: uppercase;
   }
