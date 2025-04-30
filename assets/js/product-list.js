@@ -110,6 +110,7 @@ const initProductList = () => {
   /**
    * Clears the product grid and renders products matching the specified category.
    * @param {string} category - The category to filter by (e.g., 'news', 'bestsellers').
+   * @param limit - number of products to display.
    */
   const renderProducts = (category, limit = 4) => {
     productGrid.innerHTML = "";
