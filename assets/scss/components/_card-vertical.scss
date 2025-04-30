@@ -1,6 +1,6 @@
 @use "../abstracts/variables" as vars;
 @use "../abstracts/mixins" as mixins;
-@use "../base/typography";
+@use "../base/typography" as typo;
 
 .card-vertical {
   position: relative;
@@ -49,7 +49,7 @@
   }
 
   &__pretitle {
-    @extend %typography-small-to-base-text;
+    @include typo.f-12-14($color: vars.$color-white);
     display: block;
     margin-bottom: vars.$space-xs;
     opacity: 0.8;
@@ -67,9 +67,7 @@
   }
 
   &__title {
-    @extend %typography-medium-to-large-heading;
-    font-weight: 500;
-    color: inherit;
+    @include typo.f-24-36($color: vars.$color-white);
     margin: 0;
     flex-grow: 1;
     min-width: 0;

@@ -47,73 +47,74 @@ p {
   max-width: 65ch;
 }
 
-/* Typography extends */
-// BASE TEXT (14px / 500 / 17px)
-%typography-base {
+@mixin f-14 (
+  $color: vars.$text-color-primary,
+  $line-height: 1.215,
+  $font-weight: vars.$font-weight-regular
+) {
+  color: $color;
   font-family: vars.$font-family-base;
-  font-size: 0.875em;
-  font-weight: vars.$font-weight-regular;
-  // 17px / 14px ≈ 1.214
-  line-height: 1.215;
-  letter-spacing: vars.$letter-spacing-default;
+  font-size: 0.875rem;
+  line-height: $line-height;
+  font-weight: $font-weight;
 }
 
-// LARGE TEXT (18px / 500 / 22px)
-%typography-large {
+@mixin f-24 (
+  $color: vars.$text-color-primary,
+  $line-height: 1.21,
+  $font-weight: vars.$font-weight-regular
+) {
+  color: $color;
   font-family: vars.$font-family-base;
-  font-size: 1.125em;
-  font-weight: vars.$font-weight-regular;
-  // 22px / 18px ≈ 1.222
-  line-height: 1.225;
-  letter-spacing: vars.$letter-spacing-default;
+  font-size: 1.5rem;
+  line-height: $line-height;
+  font-weight: $font-weight;
 }
 
-// SMALL TEXT (12px / 500 / 15px)
-%typography-small {
+@mixin f-12-14 (
+  $color: vars.$text-color-primary,
+  $line-height: vars.$clamp-15-17,
+  $font-weight: vars.$font-weight-regular
+) {
+  color: $color;
   font-family: vars.$font-family-base;
-  font-size: 0.75em;
-  font-weight: vars.$font-weight-regular;
-  // 15px / 12px = 1.25
-  line-height: 1.25;
-  letter-spacing: vars.$letter-spacing-default;
+  font-size: vars.$clamp-12-14;
+  line-height: $line-height;
+  font-weight: $font-weight;
 }
 
-// HEADLINE MEDIUM (24px / 700 / 29px)
-%typography-heading-medium {
+@mixin f-12-18 (
+  $color: vars.$text-color-primary,
+  $line-height: vars.$clamp-15-22,
+  $font-weight: vars.$font-weight-regular
+) {
+  color: $color;
   font-family: vars.$font-family-base;
-  font-size: 1.5em;
-  font-weight: vars.$font-weight-bold;
-  // 29px / 24px ≈ 1.208
-  line-height: 1.21;
-  letter-spacing: vars.$letter-spacing-default;
+  font-size: vars.$clamp-12-18;
+  line-height: $line-height;
+  font-weight: $font-weight;
 }
 
-// HEADLINE BIG (36px / 700 / 44px)
-%typography-heading-large {
+@mixin f-14-18 (
+  $color: vars.$text-color-primary,
+  $line-height: vars.$clamp-17-22,
+  $font-weight: vars.$font-weight-regular
+) {
+  color: $color;
   font-family: vars.$font-family-base;
-  font-size: clamp(1.5rem, 1.2359rem + 1.1268vw, 2.25rem);
-  font-weight: vars.$font-weight-bold;
-  // 44px / 36px ≈ 1.222
-  line-height: 1.225;
-  letter-spacing: vars.$letter-spacing-default;
+  font-size: vars.$clamp-14-18;
+  line-height: $line-height;
+  font-weight: $font-weight;
 }
 
-// HEADLINE MEDIUM (24px / 700 / 29px)
-// HEADLINE BIG (36px / 700 / 44px)
-%typography-medium-to-large-heading {
+@mixin f-24-36 (
+  $color: vars.$text-color-primary,
+  $line-height: vars.$clamp-29-44,
+  $font-weight: vars.$font-weight-regular
+) {
+  color: $color;
   font-family: vars.$font-family-base;
-  font-weight: vars.$font-weight-bold;
-  letter-spacing: vars.$letter-spacing-default;
-  font-size: clamp(1.5rem, 1.2359rem + 1.1268vw, 2.25rem);
-  line-height: clamp(1.8125rem, 1.4824rem + 1.4085vw, 2.75rem);
-}
-
-// SMALL TEXT (12px / 500 / 15px)
-// BASE TEXT (14px / 500 / 17px)
-%typography-small-to-base-text {
-  font-family: vars.$font-family-base;
-  font-weight: vars.$font-weight-regular;
-  letter-spacing: vars.$letter-spacing-default;
-  font-size: clamp(0.75rem, 0.706rem + 0.1878vw, 0.875rem);
-  line-height: clamp(0.9375rem, 0.8935rem + 0.1878vw, 1.0625rem);
+  font-size: vars.$clamp-24-36;
+  line-height: $line-height;
+  font-weight: $font-weight;
 }

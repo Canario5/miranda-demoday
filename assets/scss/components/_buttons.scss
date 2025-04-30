@@ -1,10 +1,10 @@
 @use "../abstracts/variables" as vars;
 @use "../abstracts/mixins" as mixins;
 @use "../abstracts/media-queries" as mq;
-@use "../base/typography";
+@use "../base/typography" as typo;
 
 .btn {
-  @extend %typography-base;
+  @include typo.f-14;
   display: grid;
   place-items: center center;
   background: vars.$background-color;
