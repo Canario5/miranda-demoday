@@ -68,7 +68,7 @@ const initProductList = () => {
     figure.appendChild(img);
     card.appendChild(figure);
 
-    // Content (title, availability, price)
+    // Content (title, availability, price, cart button)
     const content = document.createElement("div");
     content.className = "product-card__content";
 
@@ -77,21 +77,18 @@ const initProductList = () => {
     title.textContent = product.title;
     content.appendChild(title);
 
-    // Div infobox with children [availability], [price and cart button]
-    const infoBox = document.createElement("div");
-    infoBox.className = "product-card__infobox";
-
     const availability = document.createElement("p");
     availability.className = "product-card__availability";
+    availability.dataset.availability = product.availability;
     availability.textContent = product.availability || "Neznámá";
-    infoBox.appendChild(availability);
+    content.appendChild(availability);
 
     const price = document.createElement("p");
     price.className = "product-card__price";
     price.textContent = product.price
       ? `${product.price.toLocaleString("cs-CZ")} CZK`
       : "Cena nedostupná";
-    infoBox.appendChild(price);
+    content.appendChild(price);
 
     const cartButton = document.createElement("button");
     cartButton.className = "product-card__cart-button";
@@ -101,9 +98,8 @@ const initProductList = () => {
       <use href="/__spritemap#sprite-shopping-cart"></use>
     </svg>
   `;
-    infoBox.appendChild(cartButton);
+    content.appendChild(cartButton);
 
-    content.appendChild(infoBox);
     card.appendChild(content);
 
     return card;

@@ -53,37 +53,54 @@
 
   &__content {
     display: grid;
-    align-items: end;
-    align-content: space-between;
+    grid-template-columns: 1fr auto;
+    grid-template-rows: 1fr auto auto;
+    will-change: transform;
   }
 
   &__title {
+    grid-column: 1 / span 2;
+    grid-row: 1;
+    align-self: end;
     @include typo.f-12-18();
-    margin-bottom: vars.$clamp-6-13;
   }
 
   &__availability {
+    grid-column: 1;
+    grid-row: 2;
+    display: flex;
+    align-items: center;
     @include typo.f-12-14($color: vars.$highlight-color);
-  }
+    min-height: calc(2 * #{vars.$clamp-15-17}); //* line-height from f-12-14
+    margin-top: 0.25em;
+    margin-bottom: 0.25em + 0.0675em; //* to offset font "blank space"
 
-  &__infobox {
-    display: grid;
-    grid-template-columns: 1fr;
-    justify-content: space-between;
-    align-content: space-between;
-    row-gap: 0.4125em;
-    column-gap: 0.625em;
+    &[data-availability="Skladem"] {
+      color: vars.$highlight-color;
+    }
+
+    &[data-availability="Momentálně nedostupné"] {
+      color: vars.$accent-color;
+    }
+
+    &[data-availability="Na objednávku"] {
+      color: vars.$text-color-secondary;
+    }
   }
 
   &__price {
+    grid-column: 1;
+    grid-row: 3;
+    align-self: end;
     @include typo.f-12-18();
   }
 
   &__cart-button {
+    @include touch.touch($offsets: 1.4em 0.75em 0.75em 1.4em);
     position: relative;
     z-index: 1;
     grid-column: 2;
-    grid-row: 1 / span 2;
+    grid-row: 2 / span 2;
     align-self: end;
     display: flex;
     justify-content: center;
@@ -93,7 +110,7 @@
     width: vars.$clamp-30-60;
     background-color: vars.$secondary-color;
     transition:
-      opacity 0.3s ease-out 0.05s,
+      opacity 0.25s ease-out 0.05s,
       background-color 0.2s ease 0.05s;
 
     @include mq.min768px {
@@ -101,8 +118,6 @@
         opacity: 0;
       }
     }
-
-    @include touch.touch($offsets: 1.4em 0.75em 0.75em 1.4em);
 
     svg {
       place-self: center;
@@ -117,7 +132,6 @@
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 
       .product-card__cart-button {
-        pointer-events: auto;
         opacity: 1;
 
         &:hover {

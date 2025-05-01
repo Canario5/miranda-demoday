@@ -55,12 +55,8 @@
 
       @if $debug {
         border: 1px solid red;
-        // Optional: Add slight transparency to see potential overlap issues
-        // background-color: rgba(255, 0, 0, 0.05);
+        background-color: rgba(255, 0, 0, 0.05);
       }
-
-      // Optional: z-index (use with caution)
-      // z-index: -1;
     }
   }
 }
