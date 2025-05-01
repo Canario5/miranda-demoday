@@ -64,7 +64,7 @@
 
   &__container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
     justify-content: space-between;
     gap: vars.$spacing-unit * 0.5;
     max-width: vars.$site-max-width;
@@ -74,6 +74,12 @@
   &__item {
     position: relative;
     height: clamp(12.1875rem, 6.2236rem + 25.446vw, 29.125rem);
+
+    &:nth-child(3) {
+      @include mq.max1023px {
+        grid-column: 1 / -1;
+      }
+    }
 
     .teasers__image {
       position: absolute;
