@@ -198,10 +198,13 @@
       width: max-content;
       padding: 0.5rem 1rem;
       transform: scale(1);
-
       transition:
-        transform 0.3s ease,
-        box-shadow 0.2s ease;
+        transform 0.15s ease-in,
+        color 0.175s ease;
+
+      &:hover {
+        color: vars.$primary-color;
+      }
 
       @include mq.min768px {
         display: inline-block;
@@ -212,6 +215,10 @@
         color: vars.$text-color-primary;
         transform: scale(1.5);
         z-index: 1;
+
+        &:hover {
+          color: vars.$primary-color;
+        }
       }
     }
   }
