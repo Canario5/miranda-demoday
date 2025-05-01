@@ -1,7 +1,7 @@
 @use "../abstracts/variables" as vars;
 @use "../base/typography" as typo;
-
-$cl-8-16: vars.$clamp-8-16;
+@use "../abstracts/media-queries" as mq;
+@use "../abstracts/touch" as touch;
 
 .product-card {
   position: relative;
@@ -10,15 +10,10 @@ $cl-8-16: vars.$clamp-8-16;
   gap: vars.$clamp-5-10;
   border: 1px solid vars.$border-color;
   padding: vars.$clamp-6-13 vars.$clamp-6-13;
+  background-color: vars.$background-color;
   transition:
     transform 0.3s ease 0.05s,
-    box-shadow 0.3s ease 0.05s;
-
-  &:hover {
-    color: inherit;
-    transform: translateY(-4px) scale(1.08);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  }
+    box-shadow 0.4s ease 0.05s;
 
   &__labels {
     position: absolute;
@@ -32,7 +27,7 @@ $cl-8-16: vars.$clamp-8-16;
     @include typo.f-12-18();
     text-transform: capitalize;
     color: vars.$color-white;
-    padding: 0.25rem $cl-8-16;
+    padding: 0.25rem vars.$clamp-8-16;
 
     &--new {
       background: vars.$highlight-color;
@@ -49,7 +44,7 @@ $cl-8-16: vars.$clamp-8-16;
 
   &__image {
     img {
-      aspect-ratio: 1/1;
+      aspect-ratio: 1/1.2;
       width: 100%;
       height: 100%;
       object-fit: cover;
@@ -85,18 +80,50 @@ $cl-8-16: vars.$clamp-8-16;
   }
 
   &__cart-button {
+    position: relative;
+    z-index: 1;
     grid-column: 2;
     grid-row: 1 / span 2;
     align-self: end;
+    display: flex;
+    justify-content: center;
 
-    width: 34px;
-    height: 34px;
+    min-width: 34px;
+    aspect-ratio: 1 / 1;
+    width: vars.$clamp-30-60;
     background-color: vars.$secondary-color;
+    transition:
+      opacity 0.3s ease-out 0.05s,
+      background-color 0.2s ease 0.05s;
+
+    @include mq.min768px {
+      @include mq.canHover {
+        opacity: 0;
+      }
+    }
+
+    @include touch.touch($offsets: 1.4em 0.75em 0.75em 1.4em);
 
     svg {
       place-self: center;
       color: vars.$color-white;
     }
-    //
+  }
+
+  @include mq.canHover {
+    &:hover {
+      color: inherit;
+      transform: translateY(-2.5%) scale(1.075);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+
+      .product-card__cart-button {
+        pointer-events: auto;
+        opacity: 1;
+
+        &:hover {
+          background-color: vars.$highlight-color;
+        }
+      }
+    }
   }
 }
