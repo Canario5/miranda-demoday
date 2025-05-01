@@ -21,3 +21,58 @@
     @content;
   }
 }
+
+/* 768px to 1023px */
+@mixin tabletOnly {
+  @media (min-width: 48em) and (max-width: 63.9375em) {
+    @content;
+  }
+}
+
+@mixin isCoarsePointer {
+  @media (pointer: coarse) {
+    @content;
+  }
+}
+
+@mixin isFinePointer {
+  @media (pointer: fine) {
+    @content;
+  }
+}
+
+@mixin canHover {
+  @media (hover: hover) {
+    @content;
+  }
+}
+
+@mixin cannotHover {
+  @media (hover: none) {
+    @content;
+  }
+}
+
+@mixin anyCoarsePointer {
+  @media (any-pointer: coarse) {
+    @content;
+  }
+}
+
+@mixin anyFinePointer {
+  @media (any-pointer: fine) {
+    @content;
+  }
+}
+
+@mixin anyCanHover {
+  @media (any-hover: hover) {
+    @content;
+  }
+}
+
+@mixin anyCannotHover {
+  @media (any-hover: none) {
+    @content;
+  }
+}
