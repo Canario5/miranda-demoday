@@ -1,0 +1,66 @@
+@use "media-queries" as mq;
+
+/**
+ *? @mixin touch
+ *! Ensure the parent element establishes a positioning context
+ *
+ * @examples:
+ **   @include touch(15px); // 15px offset all sides, inherit radius
+ **   @include touch($offsets: 10px 20px); // 10px top/bottom, 20px left/right offset
+ *?   @include touch($debug: true);
+ *    @include touch(
+ *      $offsets: 5px 10px 15px 20px,
+ *      $corners: 50% 0,
+ *      $debug: true
+ *   );
+ */
+@mixin touch($offsets: 10px, $corners: inherit, $debug: false) {
+  @include mq.isCoarsePointer {
+    &::before {
+      content: "";
+      position: absolute;
+
+      $num-offsets: length($offsets);
+      @if $num-offsets == 1 {
+        $offset: nth($offsets, 1);
+        inset: -$offset;
+      } @else if $num-offsets == 2 {
+        $offset-v: nth($offsets, 1);
+        $offset-h: nth($offsets, 2);
+        top: -$offset-v;
+        right: -$offset-h;
+        bottom: -$offset-v;
+        left: -$offset-h;
+      } @else if $num-offsets == 3 {
+        $offset-t: nth($offsets, 1);
+        $offset-h: nth($offsets, 2);
+        $offset-b: nth($offsets, 3);
+        top: -$offset-t;
+        right: -$offset-h;
+        bottom: -$offset-b;
+        left: -$offset-h;
+      } @else if $num-offsets >= 4 {
+        $offset-t: nth($offsets, 1);
+        $offset-r: nth($offsets, 2);
+        $offset-b: nth($offsets, 3);
+        $offset-l: nth($offsets, 4);
+        top: -$offset-t;
+        right: -$offset-r;
+        bottom: -$offset-b;
+        left: -$offset-l;
+      }
+
+      // Apply border-radius (accepts keyword 'inherit' or length values)
+      border-radius: $corners;
+
+      @if $debug {
+        border: 1px solid red;
+        // Optional: Add slight transparency to see potential overlap issues
+        // background-color: rgba(255, 0, 0, 0.05);
+      }
+
+      // Optional: z-index (use with caution)
+      // z-index: -1;
+    }
+  }
+}

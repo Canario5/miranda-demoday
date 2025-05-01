@@ -1,10 +1,11 @@
 // @use "gerillass/scss/gerillass" as gerillass;
-@use "./spritemap.scss" as spritemap;
+@use "spritemap.scss" as spritemap;
 
 // Abstracts
 @use "abstracts/variables" as vars;
 @use "abstracts/mixins" as mixins;
 @use "abstracts/media-queries" as mq;
+@use "abstracts/touch" as touch;
 
 // Base
 @use "base/reset";
