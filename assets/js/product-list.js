@@ -162,7 +162,7 @@ const initProductList = () => {
     }
   });
 
-  fetch("/assets/src/products.json")
+  fetch("/products.json")
     .then((response) => {
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
