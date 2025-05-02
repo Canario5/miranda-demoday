@@ -4,28 +4,27 @@
 
 .card-vertical {
   position: relative;
-  aspect-ratio: 168 / 284;
   color: vars.$color-white;
   text-decoration: none;
   display: block;
+  container-type: inline-size;
+  container-name: card-image;
+  width: 100%;
 
-  &::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: vars.$primary-color;
-    opacity: 0;
-    pointer-events: none;
-    z-index: 2;
-    transition: opacity 0.3s ease-out;
+  & > a {
+    &::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: vars.$primary-color;
+      opacity: 0;
+      pointer-events: none;
+      z-index: 2;
+      transition: opacity 0.3s ease-out;
+    }
   }
 
   &__image {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
     object-fit: cover;
     z-index: 1;
     transition: opacity 0.3s ease-out;
@@ -41,7 +40,9 @@
     flex-direction: column;
     align-items: flex-start;
     padding: vars.$clamp-8-16;
+    @include typo.f-12-14($color: vars.$color-white);
     color: vars.$color-white;
+    pointer-events: none;
 
     &:hover {
       color: vars.$color-white;
@@ -49,10 +50,7 @@
   }
 
   &__pretitle {
-    @include typo.f-12-14($color: vars.$color-white);
-    display: block;
     margin-bottom: vars.$clamp-5-10;
-    opacity: 0.8;
   }
 
   &__title-wrapper {
@@ -63,14 +61,10 @@
     row-gap: vars.$clamp-5-10;
     height: 60px;
     position: relative;
-    overflow: visible;
   }
 
   &__title {
     @include typo.f-24-36($color: vars.$color-white);
-    margin: 0;
-    flex-grow: 1;
-    min-width: 0;
   }
 
   .animated-arrow-right {
@@ -111,7 +105,7 @@
   }
 
   &:hover {
-    &:hover::after {
+    & > a::after {
       opacity: 0.7;
     }
 
@@ -123,6 +117,43 @@
     .animated-arrow-right::before {
       transition: width 0s ease-out 0.4s;
       width: 50%;
+    }
+  }
+}
+
+.card-vertical--blog {
+  .card-vertical__content {
+    inset: 0;
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 0.5em;
+    padding-bottom: 1.875em;
+
+    //* scales on container .card-vertical from 332px to 480px
+    padding-left: clamp(12px, calc(12px + 28 * (100cqi - 332px) / 148), 40px);
+    pointer-events: auto;
+  }
+
+  .card-vertical__metadata {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    width: calc(100% - 100px);
+
+    @include typo.f-12-14($color: vars.$color-white);
+  }
+
+  .card-vertical__author-link {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+
+    .card-vertical__metadata-icon {
+      color: inherit;
+      width: 20px;
+      height: 20px;
+      min-width: 20px;
+      min-height: 20px;
     }
   }
 }

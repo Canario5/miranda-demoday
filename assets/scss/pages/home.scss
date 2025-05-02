@@ -120,14 +120,15 @@
   &__link {
     margin-bottom: vars.$clamp-35-53;
     transition:
-      transform 0.3s ease-in-out,
-      box-shadow 0.3s ease-in-out;
+      transform 0.15s ease-in 0.05s,
+      box-shadow 0.175s ease-in 0.05s;
 
     &:before {
       display: none;
     }
+
     &:hover {
-      transform: scale(1.05);
+      transform: scale(1.075);
       box-shadow: vars.$neutral-dark 0 0 0 2px inset;
     }
   }
@@ -149,18 +150,11 @@
     z-index: -1;
   }
 
-  &__container {
-    max-width: vars.$site-max-width;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
   &__title {
     @include typo.f-24-36($color: vars.$color-white);
-    margin-top: vars.$clamp-36-75;
-    margin-bottom: vars.$clamp-30-60;
+    padding-top: vars.$clamp-36-75;
+    padding-bottom: vars.$clamp-30-60;
+    text-align: center;
   }
 
   &__grid {
@@ -231,9 +225,20 @@
 
   &__grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: vars.$clamp-15-22;
+    gap: vars.$clamp-16-24;
     margin-bottom: vars.$clamp-30-60;
+
+    //! mq simple but works well with transition, grid columns needs "nice enough" values
+    //! clamps in calc needs round()
+    grid-template-columns: 1fr 1fr;
+
+    @include mq.min768px {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @include mq.min1024px {
+      grid-template-columns: repeat(4, 1fr);
+    }
   }
 
   &__actions {
@@ -241,6 +246,47 @@
 
     .btn {
       margin-top: vars.$clamp-19-30;
+    }
+  }
+}
+
+.blog {
+  background-color: vars.$secondary-color;
+  color: vars.$color-white;
+
+  &__title {
+    @include typo.f-24-36($color: vars.$color-white);
+    text-align: center;
+    padding-top: vars.$clamp-36-75;
+    padding-bottom: vars.$clamp-30-60;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(
+      auto-fit,
+      minmax(clamp(332px, 40vw, 430px), 1fr)
+    );
+    justify-items: center;
+
+    .card-vertical--blog {
+      display: none;
+
+      &:nth-child(-n + 3) {
+        display: grid;
+      }
+
+      &:nth-child(2) {
+        grid-area: 2 / 1;
+      }
+
+      &:nth-child(odd):last-child {
+        grid-column: span 2;
+      }
+
+      @include mq.min1024px {
+        display: grid;
+      }
     }
   }
 }
