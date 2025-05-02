@@ -198,9 +198,7 @@
       width: max-content;
       padding: 0.5rem 1rem;
       transform: scale(1);
-      transition:
-        transform 0.15s ease-in,
-        color 0.175s ease;
+      transition: transform 0.125s ease-in;
 
       &:hover {
         color: vars.$primary-color;
