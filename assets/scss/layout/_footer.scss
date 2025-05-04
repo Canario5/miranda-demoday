@@ -1,3 +1,118 @@
-footer {
-  background-color: aquamarine;
+@use "../abstracts/mixins" as mixins;
+@use "../abstracts/variables" as vars;
+@use "../abstracts/media-queries" as mq;
+@use "../base/typography" as typo;
+
+//? Footer - torturing device for mobile users
+.footer {
+  background-color: vars.$secondary-color;
+  @include typo.f-12-18($color: vars.$color-white);
+  text-align: center;
+  padding: calc(#{vars.$clamp-53-75} + 0.75rem) 0 vars.$clamp-53-75;
+
+  @include mq.min768px {
+    text-align: left;
+  }
+
+  &__top {
+    display: inline-grid;
+    place-items: center;
+    margin-bottom: vars.$clamp-51-90;
+  }
+
+  &__logo {
+    display: grid;
+    place-items: center;
+    width: 233px;
+    height: 66px;
+    background-color: #6b6b6b;
+  }
+
+  &__nav {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+    margin-bottom: vars.$clamp-64-128;
+
+    @include mq.min1024px {
+      gap: clamp(1.5rem, -7.1154rem + 13.4615vw, 5rem); // 24-80 1024-1440
+      grid-template-columns: auto auto auto 1fr;
+      justify-content: space-between;
+    }
+  }
+
+  &__section {
+    display: grid;
+    height: fit-content;
+
+    &--contacts {
+      @include mq.min1024px {
+        margin-left: auto;
+        margin-right: clamp(
+          0rem,
+          -6.6154rem + 10.3365vw,
+          2.6875rem
+        ); // 0-40 1024-1440
+      }
+    }
+  }
+
+  &__section-title {
+    font-weight: vars.$font-weight-bold;
+    margin-bottom: vars.$clamp-24-36;
+  }
+
+  &__link-list,
+  &__contacts {
+    line-height: 1.7;
+  }
+
+  &__contacts {
+    display: grid;
+    row-gap: 0.75rem;
+    justify-items: center;
+
+    @include mq.min768px {
+      justify-items: start;
+    }
+  }
+
+  &__socials {
+    display: inline-flex;
+    gap: 15px;
+  }
+
+  &__icon {
+    display: inline-block;
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+
+  &__copyright {
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    gap: 1.125em;
+
+    @include mq.min768px {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
+  &__credits {
+    display: flex;
+    align-items: center;
+  }
+
+  &__credits-link {
+    display: inline-flex;
+    align-items: center;
+  }
+
+  &__credits-logo {
+    height: 1.6em; //? by voko
+    margin: 0 0.75rem;
+    width: auto;
+  }
 }
