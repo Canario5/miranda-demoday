@@ -288,3 +288,46 @@
     }
   }
 }
+
+.benefits {
+  background-color: vars.$background-color;
+
+  .benefits__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: clamp(0.375rem, -8.5481rem + 13.9423vw, 4rem); // 6-64 1024-1440
+    row-gap: 0.5rem;
+    padding: vars.$clamp-45-148 0;
+
+    @include mq.min1024px {
+      grid-template-columns: repeat(4, auto);
+    }
+
+    .benefits__item {
+      display: grid;
+      grid-template-columns: vars.$clamp-35-53 1fr;
+      align-items: center;
+      gap: vars.$clamp-12-24;
+
+      @include mq.min1024px {
+        &:not(:first-child) {
+          height: 7.4375rem;
+          border-left: 1px solid vars.$border-color;
+          padding-left: clamp(
+            0.375rem,
+            -8.5481rem + 13.9423vw,
+            4rem
+          ); //* same as gap in grid
+        }
+      }
+
+      .benefits__item__icon {
+        aspect-ratio: 1 / 1;
+      }
+      .benefits__item__text {
+        @include typo.f-12-18();
+        text-wrap: balance;
+      }
+    }
+  }
+}

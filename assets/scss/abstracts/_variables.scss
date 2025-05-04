@@ -37,6 +37,7 @@ $clamp-8-16: clamp(0.5rem, 0.3239rem + 0.7512vw, 1rem); // SPACE
 $clamp-11-15: clamp(0.6944rem, 0.6009rem + 0.399vw, 0.96rem); // SPACE
 $clamp-12-14: clamp(0.75rem, 0.706rem + 0.1878vw, 0.875rem); // FONT1
 $clamp-12-18: clamp(0.75rem, 0.6429rem + 0.5357vw, 1.125rem); // FONT2
+$clamp-12-24: clamp(0.75rem, 0.4859rem + 1.1268vw, 1.5rem);
 $clamp-12-40: clamp(0.75rem, 0.1338rem + 2.6291vw, 2.5rem);
 $clamp-14-18: clamp(0.875rem, 0.787rem + 0.3756vw, 1.125rem); // FONT3
 $clamp-15-17: clamp(0.9375rem, 0.8935rem + 0.1878vw, 1.0625rem); // FONT1, LHEIGHT-1
@@ -56,6 +57,7 @@ $clamp-35-53: clamp(2.16rem, 1.7514rem + 1.7432vw, 3.3203rem); // SPACE
 
 $clamp-36-75: clamp(2.25rem, 1.3917rem + 3.662vw, 4.6875rem); // SPACE
 $clamp-41-66: clamp(2.592rem, 2.0433rem + 2.3412vw, 4.1504rem); // SPACE
+$clamp-45-148: clamp(2.8125rem, 0.5458rem + 9.6714vw, 9.25rem);
 $clamp-52-117: clamp(3.24rem, 1.8019rem + 6.1359vw, 7.3242rem); // SPACE
 $clamp-62-146: clamp(3.888rem, 2.0333rem + 7.9133vw, 9.1553rem); // SPACE
 
