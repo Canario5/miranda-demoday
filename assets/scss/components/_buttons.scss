@@ -5,70 +5,108 @@
 
 .btn {
   @include typo.f-14;
-  display: grid;
+  display: inline-grid;
   place-items: center center;
   background: vars.$background-color;
   color: vars.$text-color-primary;
   transition: color 0.2s vars.$transition-easing-custom;
 
-  &:hover {
-    color: vars.$link-color-primary;
+  @include mq.canHover {
+    &:hover {
+      color: vars.$link-color-primary;
+    }
   }
 
   &--primary {
     width: clamp(11.3125rem, 9.9481rem + 5.8216vw, 15.1875rem);
     height: clamp(2.7rem, 2.3743rem + 1.3897vw, 3.625rem);
     border: 2px solid vars.$background-color;
+    will-change: transform;
     transform: scale(1);
     transition:
-      transform 0.25s ease,
-      background-color 0.2s ease;
+      transform 0.15s ease-in 0.05s,
+      box-shadow 0.175s ease-in 0.05s;
 
-    &::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: inherit;
-      z-index: -1;
-      transform: scale(1);
-      transition: transform 0.2s ease;
-    }
-
-    &:hover::before {
-      transform: scale(1.1, 1.15);
-    }
-
-    &:active {
-      transform: scale(0.98);
-      background-color: darken(vars.$background-color, 5%);
-      transition:
-        transform 0.1s ease,
-        background-color 0.1s ease;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    }
-
-    &:focus-visible {
-      outline: 2px solid vars.$primary-color;
-      outline-offset: 2px;
-      box-shadow:
-        0 0 0 4px rgba(vars.$primary-color, 0.2),
-        0 0 0 2px vars.$primary-color;
-      z-index: 10;
-      transition:
-        outline 0.2s ease,
-        box-shadow 0.2s ease;
-      transform: scale(1.02);
-    }
-
-    &:focus-visible:hover {
-      box-shadow:
-        0 0 0 4px rgba(vars.$primary-color, 0.3),
-        0 0 0 2px darken(vars.$primary-color, 10%);
+    @include mq.canHover {
+      &:hover {
+        transform: scale(1.1);
+        box-shadow: vars.$neutral-dark 0 0 0 2px inset;
+      }
     }
   }
 
   &--outlined {
     @extend .btn--primary;
     border: 1px solid vars.$text-color-primary;
+
+    @include mq.canHover {
+      &:hover {
+        box-shadow: none;
+      }
+    }
+  }
+
+  &--chunky {
+    $arrow-margin: 8px;
+    $arrow-width: 30px;
+
+    display: inline-flex;
+    @include typo.f-12-14();
+    padding: vars.$clamp-25-48
+      calc(#{vars.$clamp-52-117} - $arrow-margin - $arrow-width)
+      vars.$clamp-25-48 vars.$clamp-12-40;
+    background-color: vars.$primary-color;
+    box-shadow: 0 0 0 2px vars.$primary-color; //! this or round clamp padding
+    will-change: transform;
+    transition:
+      color 0.4s ease 0.05s,
+      background-color 0.4s ease-out 0.1s,
+      transform 0.4s ease 0.05s;
+
+    @include mq.canHover {
+      &:hover {
+        color: vars.$primary-color;
+        background-color: vars.$secondary-color;
+        box-shadow: 0 0 0 2px vars.$primary-color;
+        transform: scale(1.1);
+
+        .chunky__arrow {
+          &__line {
+            transform: scaleX(1.33);
+          }
+
+          &__head {
+            transform: translateX(10px);
+          }
+        }
+      }
+    }
+
+    .chunky__arrow {
+      display: inline-flex;
+      align-items: center;
+      margin-left: $arrow-margin;
+      position: relative;
+
+      &__line {
+        width: $arrow-width;
+        height: 1px;
+        box-shadow:
+          0 -0.5px 0 0 currentColor,
+          0 0.5px 0 0 currentColor;
+        background-color: currentColor;
+        transform-origin: left center;
+        transition: transform 0.4s ease 0.05s;
+      }
+
+      &__head {
+        position: absolute;
+        right: -2px;
+        width: 10px;
+        height: 14px;
+        display: inline-block;
+        transition: transform 0.4s ease 0.05s;
+      }
+    }
   }
 }

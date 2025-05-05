@@ -51,10 +51,6 @@
     margin-top: 1rem;
     margin-bottom: clamp(4.25rem, 6.6691rem + -3.1214vw, 5.9375rem);
   }
-
-  .hero__cta {
-    // later
-  }
 }
 
 .teasers {
@@ -119,18 +115,6 @@
 
   &__link {
     margin-bottom: vars.$clamp-35-53;
-    transition:
-      transform 0.15s ease-in 0.05s,
-      box-shadow 0.175s ease-in 0.05s;
-
-    &:before {
-      display: none;
-    }
-
-    &:hover {
-      transform: scale(1.075);
-      box-shadow: vars.$neutral-dark 0 0 0 2px inset;
-    }
   }
 }
 
@@ -177,6 +161,13 @@
         display: block;
       }
     }
+  }
+
+  &__cta {
+    justify-self: end;
+    margin-top: calc(#{vars.$clamp-14-60} * -1);
+    position: relative;
+    z-index: 99;
   }
 }
 
@@ -295,6 +286,13 @@
         display: grid;
       }
     }
+  }
+
+  &__cta {
+    justify-self: end;
+    margin-top: calc(#{vars.$clamp-14-60} * -1);
+    position: relative;
+    z-index: 99;
   }
 }
 
