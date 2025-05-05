@@ -41,8 +41,10 @@ const initProductList = () => {
 
     if (filteredProducts.length > productsToShow.length) {
       loadMoreBtn.disabled = false;
+      loadMoreBtn.setAttribute("aria-disabled", "false");
     } else {
       loadMoreBtn.disabled = true;
+      loadMoreBtn.setAttribute("aria-disabled", "true");
     }
   };
 

@@ -17,6 +17,13 @@
     }
   }
 
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    pointer-events: none;
+    background-color: rgba(240, 240, 240, 0.8);
+  }
+
   &--primary {
     width: clamp(11.3125rem, 9.9481rem + 5.8216vw, 15.1875rem);
     height: clamp(2.7rem, 2.3743rem + 1.3897vw, 3.625rem);
