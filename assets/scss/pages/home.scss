@@ -150,6 +150,10 @@
     z-index: -1;
   }
 
+  &__container {
+    display: grid;
+  }
+
   &__title {
     @include typo.f-24-36($color: vars.$color-white);
     padding-top: vars.$clamp-36-75;
@@ -251,6 +255,11 @@
 .blog {
   background-color: vars.$secondary-color;
   color: vars.$color-white;
+  padding-bottom: vars.$clamp-53-75;
+
+  &__container {
+    display: grid;
+  }
 
   &__title {
     @include typo.f-24-36($color: vars.$color-white);
