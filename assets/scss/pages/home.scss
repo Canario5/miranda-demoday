@@ -4,6 +4,8 @@
 @use "../base/typography" as typo;
 
 .hero {
+  display: grid;
+  place-items: center;
   width: 100%;
   height: 100svh;
   color: vars.$color-white;
@@ -47,30 +49,14 @@
   --swiper-pagination-bottom: clamp(1rem, 0.5rem + 2vw, 2rem);
 }
 
-.hero__overlay-layout {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  z-index: 10;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  pointer-events: none;
-}
-
 .hero__content {
   display: flex;
+  width: 100%;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   text-align: center;
   position: relative;
-  height: 100%;
-  pointer-events: auto;
-
-  .hero__content__scroll-text {
-    display: none;
-  }
+  z-index: 10;
 }
 
 .hero__content__text {
