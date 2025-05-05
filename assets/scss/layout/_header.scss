@@ -3,12 +3,6 @@
 @use "../abstracts/media-queries" as mq;
 @use "../base/typography" as typo;
 
-$header-height: clamp(
-  4.5rem,
-  3.3996rem + 4.6948vw,
-  7.625rem
-); //375:72 = 1440:122
-
 .header {
   @include typo.f-14();
 }
@@ -16,7 +10,7 @@ $header-height: clamp(
 .header-content {
   display: flex;
   align-items: center;
-  height: $header-height;
+  height: vars.$header-height;
   padding-top: clamp(1rem, 0.6919rem + 1.3146vw, 1.875rem); //16 = 20
   padding-bottom: clamp(1.0625rem, 0.8644rem + 0.8451vw, 1.625rem); //17 = 26*/
 
@@ -58,7 +52,7 @@ $header-height: clamp(
     min-width: 100vw;
     min-height: 100vh;
     background-color: vars.$background-color;
-    padding-top: $header-height;
+    padding-top: vars.$header-height;
     transform: translateY(-110%);
     z-index: 999;
   }

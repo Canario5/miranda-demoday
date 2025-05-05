@@ -30,6 +30,9 @@ $font-weight-bold: 700;
 // Spacing
 $spacing-unit: 1rem; // Base unit (16px)
 
+// header height  //375:72 = 1440:122
+$header-height: clamp(4.5rem, 3.3996rem + 4.6948vw, 7.625rem);
+
 // Fluid Spacing System (Sorted by minimum value)
 $clamp-5-10: clamp(0.3125rem, 0.2025rem + 0.4695vw, 0.625rem);
 $clamp-6-13: clamp(0.375rem, 0.221rem + 0.6573vw, 0.8125rem);
