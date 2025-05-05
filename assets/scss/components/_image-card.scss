@@ -3,7 +3,7 @@
 @use "../base/typography" as typo;
 @use "../abstracts/touch" as touch;
 
-.card-vertical {
+.image-card {
   position: relative;
   color: vars.$color-white;
   text-decoration: none;
@@ -109,7 +109,7 @@
       opacity: 0.7;
     }
 
-    .card-vertical__arrow-icon {
+    .image-card__arrow-icon {
       opacity: 1;
       transform: translateX(90px);
     }
@@ -121,20 +121,20 @@
   }
 }
 
-.card-vertical--blog {
-  .card-vertical__content {
+.image-card--blog {
+  .image-card__content {
     inset: 0;
     display: flex;
     justify-content: flex-end;
     padding-right: 0.5em;
     padding-bottom: 1.875em;
 
-    //* scales on container .card-vertical from 332px to 480px
+    //* scales on container .image-card from 332px to 480px
     padding-left: clamp(12px, calc(12px + 28 * (100cqi - 332px) / 148), 40px);
     pointer-events: auto;
   }
 
-  .card-vertical__metadata {
+  .image-card__metadata {
     display: flex;
     align-items: center;
     gap: 0.5em;
@@ -143,12 +143,12 @@
     @include typo.f-12-14($color: vars.$color-white);
   }
 
-  .card-vertical__author-link {
+  .image-card__author-link {
     display: flex;
     align-items: center;
     gap: 0.5em;
 
-    .card-vertical__metadata-icon {
+    .image-card__metadata-icon {
       color: inherit;
       width: 20px;
       height: 20px;
@@ -157,8 +157,8 @@
     }
   }
 
-  .card-vertical__author-link,
-  .card-vertical__comments-link {
+  .image-card__author-link,
+  .image-card__comments-link {
     @include touch.touch($offsets: 0 0 1em 0);
     position: relative;
   }

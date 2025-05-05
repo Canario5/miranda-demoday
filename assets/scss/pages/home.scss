@@ -168,14 +168,14 @@
     width: 100%;
     grid-template-columns: repeat(2, 1fr);
 
-    > .card-vertical:nth-child(n + 3) {
+    > .image-card:nth-child(n + 3) {
       display: none;
     }
 
     @include mq.min768px {
       grid-template-columns: repeat(4, 1fr);
 
-      > .card-vertical:nth-child(n + 3) {
+      > .image-card:nth-child(n + 3) {
         display: block;
       }
     }
@@ -285,7 +285,7 @@
     );
     justify-items: center;
 
-    .card-vertical--blog {
+    .image-card--blog {
       display: none;
 
       &:nth-child(-n + 3) {
