@@ -20,6 +20,11 @@
       type="font/woff2"
       crossorigin
     />
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
   </head>
   <body>
     <header class="header">
@@ -156,17 +161,29 @@
 
     <main>
       <section class="hero">
-        <div class="layout-padding">
-          <div class="content-container hero__container">
-            <div class="hero__content">
-              <div class="hero__content__text">
-                <div class="hero__subtitle">Lorem ipsum dolor si</div>
-                <h1 class="hero__title">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                </h1>
-                <a href="#" class="hero__cta btn btn--primary">Zobrazit</a>
+        <div class="swiper hero-swiper">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide hero-slide hero-slide--1"></div>
+            <div class="swiper-slide hero-slide hero-slide--2"></div>
+            <div class="swiper-slide hero-slide hero-slide--3"></div>
+          </div>
+
+          <div class="swiper-pagination"></div>
+        </div>
+
+        <div class="hero__overlay-layout">
+          <div class="layout-padding">
+            <div class="content-container hero__container">
+              <div class="hero__content">
+                <div class="hero__content__text">
+                  <div class="hero__subtitle">Lorem ipsum dolor si</div>
+                  <h1 class="hero__title">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  </h1>
+                  <a href="#" class="hero__cta btn btn--primary">Zobrazit</a>
+                </div>
+                <div class="hero__content__scroll-text">Skroluj</div>
               </div>
-              <div class="hero__content__scroll-text">Skroluj</div>
             </div>
           </div>
         </div>
