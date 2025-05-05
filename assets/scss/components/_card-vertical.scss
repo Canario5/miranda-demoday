@@ -1,6 +1,7 @@
 @use "../abstracts/variables" as vars;
 @use "../abstracts/mixins" as mixins;
 @use "../base/typography" as typo;
+@use "../abstracts/touch" as touch;
 
 .card-vertical {
   position: relative;
@@ -154,5 +155,11 @@
       min-width: 20px;
       min-height: 20px;
     }
+  }
+
+  .card-vertical__author-link,
+  .card-vertical__comments-link {
+    @include touch.touch($offsets: 0 0 1em 0);
+    position: relative;
   }
 }
