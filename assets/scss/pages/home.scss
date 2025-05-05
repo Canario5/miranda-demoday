@@ -63,8 +63,6 @@
     grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
     justify-content: space-between;
     gap: vars.$spacing-unit * 0.5;
-    max-width: vars.$site-max-width;
-    margin: 0 auto;
   }
 
   &__item {
