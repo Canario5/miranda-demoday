@@ -34,7 +34,6 @@ $spacing-unit: 1rem; // Base unit (16px)
 $clamp-5-10: clamp(0.3125rem, 0.2025rem + 0.4695vw, 0.625rem);
 $clamp-6-13: clamp(0.375rem, 0.221rem + 0.6573vw, 0.8125rem);
 $clamp-8-16: clamp(0.5rem, 0.3239rem + 0.7512vw, 1rem);
-$clamp-11-15: clamp(0.6944rem, 0.6009rem + 0.399vw, 0.96rem);
 $clamp-12-14: clamp(0.75rem, 0.706rem + 0.1878vw, 0.875rem); // FONT1
 $clamp-12-18: clamp(0.75rem, 0.6429rem + 0.5357vw, 1.125rem); // FONT2
 $clamp-12-24: clamp(0.75rem, 0.4859rem + 1.1268vw, 1.5rem);
@@ -44,28 +43,22 @@ $clamp-14-60: clamp(0.875rem, -0.1373rem + 4.3192vw, 3.75rem);
 $clamp-15-17: clamp(0.9375rem, 0.8935rem + 0.1878vw, 1.0625rem); // FONT1, LHEIGHT-1
 
 $clamp-15-22: clamp(0.9375rem, 0.7835rem + 0.6573vw, 1.375rem); // FONT2, LHEIGHT-2
-$clamp-12-23: clamp(0.75rem, 0.5079rem + 1.0329vw, 1.4375rem);
 $clamp-16-24: clamp(1rem, 0.8239rem + 0.7512vw, 1.5rem);
 $clamp-17-22: clamp(1.0625rem, 0.9525rem + 0.4695vw, 1.375rem); // FONT3, LHEIGHT-3
 $clamp-19-30: clamp(1.2rem, 0.9623rem + 1.0141vw, 1.875rem);
 $clamp-24-36: clamp(1.5rem, 1.2359rem + 1.1268vw, 2.25rem); // FONT4
 
 $clamp-25-48: clamp(1.5625rem, 1.0563rem + 2.1596vw, 3rem);
-$clamp-29-43: clamp(1.8rem, 1.4985rem + 1.2864vw, 2.6563rem);
 $clamp-29-44: clamp(1.8125rem, 1.4824rem + 1.4085vw, 2.75rem); // FONT4, LHEIGHT-4
 $clamp-30-60: clamp(1.875rem, 1.2148rem + 2.8169vw, 3.75rem);
 $clamp-35-53: clamp(2.16rem, 1.7514rem + 1.7432vw, 3.3203rem);
 
 $clamp-36-75: clamp(2.25rem, 1.3917rem + 3.662vw, 4.6875rem);
-$clamp-41-66: clamp(2.592rem, 2.0433rem + 2.3412vw, 4.1504rem);
 $clamp-45-148: clamp(2.8125rem, 0.5458rem + 9.6714vw, 9.25rem);
 $clamp-51-90: clamp(3.1875rem, 2.3292rem + 3.662vw, 5.625rem);
 $clamp-52-117: clamp(3.24rem, 1.8019rem + 6.1359vw, 7.3242rem);
 $clamp-53-75: clamp(3.3125rem, 2.8283rem + 2.0657vw, 4.6875rem);
-$clamp-62-146: clamp(3.888rem, 2.0333rem + 7.9133vw, 9.1553rem);
 $clamp-64-128: clamp(4rem, 2.5915rem + 6.0094vw, 8rem);
-
-$space-giga: clamp(3.888rem, 2.0333rem + 7.9133vw, 9.1553rem); // 62.208px → 146.4844px
 
 $border-radius-base: 4px;
 
