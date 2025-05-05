@@ -10,3 +10,8 @@ document.addEventListener("DOMContentLoaded", () => {
   initProductList();
   initHeroSlider();
 });
+
+document.addEventListener("click", function (event) {
+  // Log the clicked element to the console
+  console.log("You clicked on:", event.target);
+});
