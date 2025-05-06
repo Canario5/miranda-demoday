@@ -117,7 +117,9 @@
   @include mq.min1024px {
     flex-grow: 1;
     margin-right: 10px;
-    max-width: calc(298px - 9px - 13px + 10px);
+    max-width: calc(
+      298px - 9px - 13px + 10px
+    ); //* (- from figma design) + margin-right
   }
 
   // --- Search Toggle Button on mobile only
