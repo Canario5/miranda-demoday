@@ -105,8 +105,8 @@
   pointer-events: auto;
 
   .hero__subtitle {
-    @include typo.f-14($color: vars.$color-white);
-    letter-spacing: 0.18em;
+    @include typo.f-14-18($color: vars.$color-white);
+    letter-spacing: 0.18rem;
     text-transform: uppercase;
   }
 
