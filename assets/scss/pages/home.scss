@@ -47,20 +47,62 @@
 }
 
 .hero__content {
-  display: flex;
-  width: 100%;
-  flex-direction: column;
-  align-items: center;
+  display: grid;
+  place-items: center;
   text-align: center;
-  position: relative;
-  z-index: 10;
+  height: 100%;
+  position: relative; //* Needed for scroll-motivator
+  pointer-events: none;
+}
+
+.scroll-motivator {
+  visibility: hidden;
+  position: absolute;
+  z-index: 2;
+  left: 0;
+  bottom: 0;
+  height: 20%; //* height of first element = height of line
+  min-height: 11.125rem;
+  width: 0; //* without setting the width it expands size by its text child
+  /*border-left: 1px dashed red;*/
+  border-right: 1px solid vars.$background-color;
+  animation: floatAnimation 4s ease-in-out infinite 1s;
+  will-change: transform;
+
+  &__text {
+    @include typo.f-14(
+      $color: vars.$color-white,
+      $font-weight: vars.$font-weight-regular
+    );
+    text-transform: capitalize;
+    display: block;
+    transform: rotate(-90deg) translateX(3rem);
+  }
+
+  @include mq.min1440px() {
+    visibility: visible;
+  }
+
+  @keyframes floatAnimation {
+    0% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(0.625rem);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
 }
 
 .hero__content__text {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  max-width: 600px;
+  display: grid;
+  place-items: center;
+  max-width: 37.5rem;
+  position: relative;
+  z-index: 10;
+  pointer-events: auto;
 
   .hero__subtitle {
     @include typo.f-14($color: vars.$color-white);

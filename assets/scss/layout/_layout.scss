@@ -5,6 +5,7 @@ $Spacing: vars.$spacing-unit;
 
 .layout-padding {
   width: 100%;
+  height: 100%;
   padding-left: clamp($Spacing, 5vw, $Spacing * 2);
   padding-right: clamp($Spacing, 5vw, $Spacing * 2);
 }
