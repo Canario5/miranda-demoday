@@ -321,10 +321,7 @@
 
   &__grid {
     display: grid;
-    grid-template-columns: repeat(
-      auto-fit,
-      minmax(clamp(332px, 40vw, 430px), 1fr)
-    );
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     justify-items: center;
 
     .image-card--blog {
@@ -342,7 +339,7 @@
         grid-column: span 2;
       }
 
-      @include mq.min1024px {
+      @include mq.min768px {
         display: grid;
       }
     }
