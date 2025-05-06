@@ -46,11 +46,8 @@
     justify-items: center;
     align-items: center;
     position: fixed;
-    top: 0;
-    right: 0;
+    inset: 0;
     visibility: hidden;
-    min-width: 100vw;
-    min-height: 100vh;
     background-color: vars.$background-color;
     padding-top: vars.$header-height;
     transform: translateY(-110%);
