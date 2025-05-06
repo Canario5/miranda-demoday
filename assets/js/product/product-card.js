@@ -52,7 +52,7 @@ export const createProductCard = (product) => {
   const figure = document.createElement("figure");
   figure.className = "product-card__image";
   const img = document.createElement("img");
-  img.src = product.imgSrc || "/assets/img/missing-product-image.png";
+  img.src = product.imgSrc || "/assets/img/missing-product-image.webp";
   img.alt = product.title || "Produkt";
   img.loading = "lazy";
   figure.appendChild(img);
