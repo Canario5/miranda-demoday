@@ -38,12 +38,24 @@
 }
 
 .hero-swiper {
-  --swiper-pagination-color: #{vars.$primary-color};
-  --swiper-pagination-bullet-inactive-color: #{vars.$color-white};
-  --swiper-pagination-bullet-inactive-opacity: 0.6;
+  --swiper-pagination-color: #{vars.$background-color};
+  --swiper-pagination-bullet-inactive-color: transparent;
+  --swiper-pagination-bullet-active-color: #{vars.$color-white};
+  --swiper-pagination-bullet-border-color: #{vars.$color-white};
+  --swiper-pagination-bullet-inactive-opacity: 1;
   --swiper-pagination-bullet-size: 10px;
-  --swiper-pagination-bullet-horizontal-gap: 6px;
-  --swiper-pagination-bottom: clamp(1rem, 0.5rem + 2vw, 2rem);
+  --swiper-pagination-bullet-horizontal-gap: 10px;
+  --swiper-pagination-bottom: 6rem;
+}
+
+.swiper-pagination-bullet {
+  width: var(--swiper-pagination-bullet-size);
+  background-color: var(--swiper-pagination-bullet-inactive-color);
+  border: 1px solid vars.$color-white;
+
+  &.swiper-pagination-bullet-active {
+    background-color: var(--swiper-pagination-bullet-active-color);
+  }
 }
 
 .hero__content {
