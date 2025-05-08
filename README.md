@@ -3,7 +3,7 @@
 The party is in the `demoday-base-second-try` branch.
 
 Dočasně dostupné na:
-https://miranda-demoday.pages.dev (Pozn.: automatický build jde z main, která může být pozadu oproti výše uvedené)
+https://miranda.raha.cz (Pozn.: automatický build jde z main, která může být pozadu oproti výše uvedené)
 
 Projekt k náhledu na lokálu se spustí:
 ```
