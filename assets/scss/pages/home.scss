@@ -117,10 +117,10 @@
     margin-top: 1rem;
     margin-bottom: clamp(4.25rem, 6.6691rem + -3.1214vw, 5.9375rem);
   }
-}
 
-.hero__cta {
-  pointer-events: auto;
+  & > * {
+    pointer-events: auto;
+  }
 }
 
 .teasers {
