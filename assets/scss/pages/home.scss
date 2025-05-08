@@ -464,8 +464,7 @@
     width: auto;
     background-color: vars.$secondary-color;
     color: vars.$color-white;
-    transform-origin: left center;
-    box-shadow: none;
+    height: clamp(52.5px, 12.5vw, 118px);
 
     @include mq.canHover {
       &:hover {

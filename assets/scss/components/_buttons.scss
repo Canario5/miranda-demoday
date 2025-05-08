@@ -57,13 +57,13 @@
     $arrow-margin: 8px;
     $arrow-width: 30px;
 
-    display: inline-flex;
+    display: inline-grid;
+    grid-template-columns: auto minmax($arrow-width, 1fr);
+    width: clamp(140px, 28vw, 243px);
+    height: clamp(67px, 12.5vw, 118px);
+    padding: 0.5rem vars.$clamp-12-40;
     @include typo.f-12-14();
-    padding: vars.$clamp-25-48
-      calc(#{vars.$clamp-52-117} - $arrow-margin - $arrow-width)
-      vars.$clamp-25-48 vars.$clamp-12-40;
     background-color: vars.$primary-color;
-    box-shadow: 0 0 0 2px vars.$primary-color; //! this or round clamp padding
     will-change: transform;
     transition:
       color 0.4s ease 0.05s,
