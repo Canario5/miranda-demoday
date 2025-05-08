@@ -1,7 +1,6 @@
 @use "../abstracts/variables" as vars;
-@use "../abstracts/mixins" as mixins;
 @use "../abstracts/media-queries" as mq;
-@use "../base/typography" as typo;
+@use "../abstracts/touch" as touch;
 
 $container-width: 48px;
 $container-height: 48px;
@@ -12,8 +11,9 @@ $bar-color: vars.$text-color-primary;
 $bar-hover-color: vars.$link-color-primary;
 
 .mobile-menu-toggle {
-  display: block;
+  @include touch.touch();
   position: relative;
+  display: block;
   width: $container-width;
   height: $container-height;
   background: transparent;
