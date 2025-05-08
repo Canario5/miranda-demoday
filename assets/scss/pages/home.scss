@@ -445,7 +445,10 @@
     display: flex;
     justify-content: center;
     width: 100%;
-    gap: clamp(0rem, -0.5942rem + 2.5352vw, 1.6875rem); // 0-27
+
+    @include mq.min768px {
+      gap: clamp(0rem, -0.5942rem + 2.5352vw, 1.6875rem); // 0-27
+    }
   }
 
   &__input {
