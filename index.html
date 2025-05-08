@@ -20,6 +20,7 @@
       type="font/woff2"
       crossorigin
     />
+    <link rel="preload" href="/assets/img/hero.webp" as="image" />
 
     <link
       rel="stylesheet"
@@ -171,9 +172,23 @@
       <section class="hero">
         <div class="swiper hero-swiper">
           <div class="swiper-wrapper">
-            <div class="swiper-slide hero-slide hero-slide--1"></div>
-            <div class="swiper-slide hero-slide hero-slide--2"></div>
-            <div class="swiper-slide hero-slide hero-slide--3"></div>
+            <div class="swiper-slide hero-slide">
+              <img src="/assets/img/hero.webp" alt="Hero slide 1" />
+            </div>
+            <div class="swiper-slide hero-slide">
+              <img
+                src="/assets/img/hero2.webp"
+                alt="Hero slide 2"
+                loading="lazy"
+              />
+            </div>
+            <div class="swiper-slide hero-slide">
+              <img
+                src="/assets/img/hero3.webp"
+                alt="Hero slide 3"
+                loading="lazy"
+              />
+            </div>
           </div>
 
           <div class="swiper-pagination"></div>

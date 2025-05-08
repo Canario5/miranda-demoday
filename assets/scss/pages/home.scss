@@ -23,17 +23,14 @@
 .hero-slide {
   width: 100%;
   height: 100%;
-  background-size: cover;
-  background-position: center center;
+  overflow: hidden;
 
-  &--1 {
-    background-image: url("/assets/img/hero.webp");
-  }
-  &--2 {
-    background-image: url("/assets/img/hero2.webp");
-  }
-  &--3 {
-    background-image: url("/assets/img/hero3.webp");
+  img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
   }
 }
 
