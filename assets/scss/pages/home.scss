@@ -68,6 +68,7 @@
   border-right: 1px solid vars.$background-color;
   animation: floatAnimation 4s ease-in-out infinite 1s;
   will-change: transform;
+  user-select: none;
 
   &__text {
     @include typo.f-14(
